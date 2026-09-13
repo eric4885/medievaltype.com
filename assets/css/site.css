@@ -316,7 +316,7 @@ p { color: var(--dim); margin: 0 0 14px; }
   opacity: .55;
   pointer-events: none;
 }
-.path.soon .kicker::after { content: " · soon"; }
+.path.soon .kicker::after { content: " &middot; soon"; }
 
 .hero-mark {
   font-family: var(--font-display);
