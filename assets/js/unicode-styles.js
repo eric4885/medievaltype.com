@@ -63,7 +63,7 @@ MT.STYLES = [
   { id:'boldgothic', name:'Bold Fraktur', note:'Heavy blackletter', compat:'med',
     up:BOLD_FRAKTUR_UP, lo:BOLD_FRAKTUR_LO },
   { id:'metal', name:'Metal', note:'Dense Fraktur with marks', compat:'med',
-    up:BOLD_FRAKTUR_UP, lo:BOLD_FRAKTUR_LO, pre:'\u2600', post:'\u2600' },
+    up:BOLD_FRAKTUR_UP, lo:BOLD_FRAKTUR_LO, pre:'\u2726', post:'\u2726' },
   { id:'grave', name:'Grunge', note:'Struck-through gothic', compat:'med',
     up:FRAKTUR_UP, lo:FRAKTUR_LO, strike:true },
   { id:'script', name:'Dark Cursive', note:'Formal script cousin', compat:'med',
@@ -77,9 +77,6 @@ MT.STYLES = [
   { id:'bold', name:'Bold Sans', note:'Near-universal rendering', compat:'hi',
     up:BOLD_SANS_UP, lo:BOLD_SANS_LO, digits:BOLD_SANS_DIGITS },
 ];
-
-MT.STYLES.find(s => s.id === 'metal').pre = '\u26E4';
-MT.STYLES.find(s => s.id === 'metal').post = '\u26E4';
 
 MT.ORNAMENTS = ['\u269C', '\u271D', '\u2620', '\u2694', '\u2726', '\u2767'];
 MT.COMPAT_LABEL = { hi:['high','t-hi'], med:['medium','t-md'], lo:['low','t-lo'] };
@@ -102,7 +99,9 @@ MT.mapChar = function(ch, style){
 
 MT.convert = function(text, style, ornIndex){
   let out = [...text].map(c => MT.mapChar(c, style)).join('');
-  if (style.strike) out = [...out].map(c => c + '\u0338').join('');
+  if (style.strike) {
+    out = [...out].map(c => /\s/.test(c) ? c : (c + '\u0338')).join('');
+  }
   if (ornIndex != null && ornIndex >= 0) {
     const o = MT.ORNAMENTS[ornIndex % MT.ORNAMENTS.length];
     out = o + ' ' + out + ' ' + o;
