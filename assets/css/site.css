@@ -215,6 +215,7 @@ p { color: var(--dim); margin: 0 0 14px; }
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  min-height: 44px;
 }
 .btn:hover { filter: brightness(1.05); text-decoration: none; }
 .btn:active { transform: translateY(1px); }

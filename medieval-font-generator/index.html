@@ -22,18 +22,25 @@
   .face-tabs button[aria-selected="true"] {
     border-color: var(--accent); color: var(--accent); background: color-mix(in srgb, var(--accent) 10%, var(--panel));
   }
-  .dual {
-    display:grid; gap:14px; grid-template-columns:1fr 1fr; margin-top:18px;
+  .primary-box {
+    margin-top:18px; border:1px solid var(--line); background:var(--panel);
+    border-radius:var(--radius); padding:16px;
   }
-  .dual .box {
-    border:1px solid var(--line); background:var(--panel); border-radius:var(--radius); padding:14px;
+  .primary-box .sample {
+    font-size: clamp(30px, 6vw, 48px); line-height:1.3; min-height:80px;
+    word-break:break-word; padding:10px 0 16px;
   }
-  .dual h3 { margin:0 0 8px; font-size:14px; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); }
-  .dual .sample {
-    font-size: clamp(26px, 5vw, 40px); line-height:1.3; min-height:72px;
-    word-break:break-word; padding:8px 0;
+  .uni-secondary {
+    margin-top:14px; border:1px dashed var(--line); border-radius:var(--radius);
+    padding:12px 14px; background:transparent;
   }
-  @media (max-width:700px){ .dual { grid-template-columns:1fr; } }
+  .uni-secondary summary {
+    cursor:pointer; font-size:14px; color:var(--muted); font-weight:650;
+  }
+  .uni-secondary .sample {
+    margin-top:10px; font-size:clamp(22px, 4vw, 32px); line-height:1.3;
+    word-break:break-word;
+  }
 </style>
 </head>
 <body>
@@ -41,36 +48,35 @@
   <a class="brand" href="/">MedievalType</a>
   <nav class="nav" aria-label="Primary">
     <a href="/gothic-text-generator/">Gothic Text</a>
-    <a href="/medieval-font-generator/" aria-current="page">Medieval Fonts</a>
+    <a href="/medieval-font-generator/" aria-current="page">Medieval Generator</a>
     <a href="/medieval-fonts/">Downloads</a>
   </nav>
 </header>
 
 <main class="wrap">
   <h1>Medieval Font Generator</h1>
-  <p class="sub">Preview real medieval and blackletter typefaces in your browser, then download the TTF. Built for RPG sheets, LARP props, chapter titles and period UI &mdash; not just social bios. Unicode copy is included as a secondary option.</p>
+  <p class="sub">Preview real medieval typefaces in your browser, then download the TTF for RPG sheets, LARP props, chapter titles and period UI. This page is about installable fonts &mdash; not social-bio Unicode.</p>
 
   <div class="tool">
     <input type="text" id="src" value="Ye Olde Tavern" maxlength="120" autocomplete="off" aria-label="Type your medieval text">
     <div class="face-tabs" id="faces" role="tablist" aria-label="Font faces"></div>
 
-    <div class="dual">
-      <div class="box">
-        <h3>Real font preview</h3>
-        <div class="sample" id="fontOut">Ye Olde Tavern</div>
-        <div class="row" style="margin-top:10px">
-          <a class="btn" id="dlBtn" href="/downloads/UnifrakturMaguntia.zip" download>Download this font</a>
-        </div>
-      </div>
-      <div class="box">
-        <h3>Unicode (copy-paste)</h3>
-        <div class="sample" id="uniOut" style="font-family:serif">Ye Olde Tavern</div>
-        <div class="row" style="margin-top:10px">
-          <button class="btn ghost" id="copyUni" type="button">Copy Unicode</button>
-          <span class="hint ok" id="copied" hidden>Copied</span>
-        </div>
+    <div class="primary-box">
+      <div class="sample" id="fontOut">Ye Olde Tavern</div>
+      <div class="row">
+        <a class="btn" id="dlBtn" href="/downloads/UnifrakturMaguntia.zip" download>Download this font (TTF zip)</a>
       </div>
     </div>
+
+    <details class="uni-secondary">
+      <summary>Optional: also copy as Unicode (secondary)</summary>
+      <div class="sample" id="uniOut" style="font-family:serif">Ye Olde Tavern</div>
+      <div class="row" style="margin-top:10px">
+        <button class="btn ghost" id="copyUni" type="button">Copy Unicode</button>
+        <span class="hint ok" id="copied" hidden>Copied</span>
+      </div>
+      <p class="hint" style="margin-top:8px">For metal tags and gaming IDs, the dark <a href="/gothic-text-generator/">Gothic Text Generator</a> is the better tool.</p>
+    </details>
   </div>
 
   <h2>Font pack on this page</h2>
@@ -117,7 +123,7 @@
     <a href="/privacy/">Privacy</a>
     <a href="/terms/">Terms</a>
   </nav>
-  <div class="footer-meta">Fonts under SIL OFL 1.1 &middot; <a href="https://github.com/eric4885/medievaltype.com" rel="noopener">GitHub</a></div>
+  <div class="footer-meta">All downloadable fonts are SIL OFL 1.1 &mdash; free for commercial use &middot; <a href="https://github.com/eric4885/medievaltype.com" rel="noopener">GitHub</a></div>
 </footer>
 
 <script src="/assets/js/unicode-styles.js"></script>
