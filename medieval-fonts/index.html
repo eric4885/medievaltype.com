@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="parchment">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Medieval Fonts — Free Blackletter &amp; Gothic TTF Downloads (OFL)</title>
+<meta name="description" content="Download free medieval, gothic and blackletter fonts (TTF) under SIL OFL 1.1. Sorted by Textura, Fraktur and display styles. Free for personal and commercial use.">
+<link rel="canonical" href="https://medievaltype.com/medieval-fonts/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MedievalType">
+<meta property="og:url" content="https://medievaltype.com/medieval-fonts/">
+<meta property="og:title" content="Medieval Fonts — Free Blackletter TTF Downloads">
+<meta property="og:description" content="Free OFL medieval and gothic font packs. Preview in-browser, download TTF + license.">
+<link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="/">MedievalType</a>
+  <nav class="nav" aria-label="Primary">
+    <a href="/gothic-text-generator/">Gothic Text</a>
+    <a href="/medieval-font-generator/">Medieval Fonts</a>
+    <a href="/medieval-fonts/" aria-current="page">Downloads</a>
+  </nav>
+</header>
+
+<main class="wrap">
+  <h1>Medieval Font Downloads</h1>
+  <p class="sub">Real TTF files for blackletter work — Textura, Fraktur and display faces under SIL Open Font License 1.1. Preview below, then download the zip (font + OFL text). Free for personal and commercial use.</p>
+
+  <nav class="cat-nav" aria-label="Categories">
+    <a href="#fraktur">Fraktur</a>
+    <a href="#textura-display">Textura &amp; display</a>
+    <a href="#uncial-title">Title &amp; uncial-adjacent</a>
+  </nav>
+
+  <div class="tool" style="margin-bottom:22px">
+    <label for="previewText" class="hint">Preview text</label>
+    <input type="text" id="previewText" value="MedievalType" maxlength="80" aria-label="Preview text for all fonts" style="margin-top:8px">
+  </div>
+
+  <h2 id="fraktur">Fraktur</h2>
+  <p>German blackletter branches — dense, broken strokes, strong for headings and period UI.</p>
+  <div class="font-grid" id="cat-fraktur"></div>
+
+  <h2 id="textura-display">Textura &amp; display</h2>
+  <p>Heavier gothic display faces for posters, band art and game titles.</p>
+  <div class="font-grid" id="cat-display"></div>
+
+  <h2 id="uncial-title">Title &amp; uncial-adjacent</h2>
+  <p>Readable display serifs with medieval flavor — good for RPG sheets and chapter titles.</p>
+  <div class="font-grid" id="cat-title"></div>
+
+  <h2>License</h2>
+  <div class="note">
+    Every pack on this page is redistributed under <strong>SIL OFL 1.1</strong>. The zip includes the license file. Do not redistribute faces that are personal-use-only (we never host those). Attribution to the original designers is appreciated.
+  </div>
+
+  <h2>Need pasteable text instead?</h2>
+  <div class="links">
+    <a href="/gothic-text-generator/">Gothic Text Generator →</a>
+    <a href="/medieval-font-generator/">Medieval Font Generator (preview + download) →</a>
+  </div>
+</main>
+
+<footer class="site-footer">
+  MedievalType · Font downloads · SIL OFL 1.1 · Free for commercial use
+</footer>
+
+<script>
+const FONTS = [
+  { id:'unifraktur-maguntia', name:'Unifraktur Maguntia', cat:'fraktur', family:'UnifrakturMaguntia',
+    file:'/downloads/UnifrakturMaguntia.zip', note:'Classic Fraktur book face' },
+  { id:'unifraktur-cook', name:'Unifraktur Cook', cat:'fraktur', family:'UnifrakturCook',
+    file:'/downloads/UnifrakturCook.zip', note:'Bold Fraktur for titles' },
+  { id:'grenze-gotisch', name:'Grenze Gotisch', cat:'display', family:'"Grenze Gotisch"',
+    file:'/downloads/GrenzeGotisch.zip', note:'Variable blackletter display' },
+  { id:'pirata-one', name:'Pirata One', cat:'display', family:'"Pirata One"',
+    file:'/downloads/PirataOne.zip', note:'Sharp gothic display' },
+  { id:'medievalsharp', name:'MedievalSharp', cat:'title', family:'MedievalSharp',
+    file:'/downloads/MedievalSharp.zip', note:'Pointed medieval title face' },
+  { id:'metamorphous', name:'Metamorphous', cat:'title', family:'Metamorphous',
+    file:'/downloads/Metamorphous.zip', note:'Soft medieval display serif' },
+];
+
+const boxes = {
+  fraktur: document.getElementById('cat-fraktur'),
+  display: document.getElementById('cat-display'),
+  title: document.getElementById('cat-title'),
+};
+const previewText = document.getElementById('previewText');
+
+function card(f){
+  const el = document.createElement('article');
+  el.className = 'font-card';
+  el.innerHTML = `
+    <div class="sample" style="font-family:${f.family}, serif" data-id="${f.id}">MedievalType</div>
+    <div class="name">${f.name}</div>
+    <div class="meta-line">${f.note} · SIL OFL 1.1</div>
+    <div class="actions">
+      <a class="btn" href="${f.file}" download>Download zip</a>
+      <a class="btn ghost" href="/medieval-font-generator/#${f.id}">Try in generator</a>
+    </div>`;
+  return el;
+}
+
+FONTS.forEach(f => boxes[f.cat].appendChild(card(f)));
+
+function syncPreview(){
+  const t = previewText.value || 'MedievalType';
+  document.querySelectorAll('.font-card .sample').forEach(el => { el.textContent = t; });
+}
+previewText.addEventListener('input', syncPreview);
+syncPreview();
+</script>
+</body>
+</html>

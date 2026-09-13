@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="gothic">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gothic Text Generator — Copy &amp; Paste Blackletter Text (Free)</title>
+<meta name="description" content="Convert any text into Gothic, blackletter and Fraktur Unicode lettering. Instant live preview, one-click copy for Instagram, Discord, TikTok and gaming tags. No signup.">
+<link rel="canonical" href="https://medievaltype.com/gothic-text-generator/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MedievalType">
+<meta property="og:url" content="https://medievaltype.com/gothic-text-generator/">
+<meta property="og:title" content="Gothic Text Generator — Copy &amp; Paste Blackletter Text">
+<meta property="og:description" content="Turn plain text into Gothic, blackletter and Fraktur lettering. Live preview, one-click copy.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Gothic Text Generator — Copy &amp; Paste Blackletter Text">
+<meta name="twitter:description" content="Turn plain text into Gothic, blackletter and Fraktur lettering. Live preview, one-click copy.">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Is this a real font I can install?","acceptedAnswer":{"@type":"Answer","text":"No. These are Unicode characters that already look like blackletter, so you can paste them anywhere without installing a font. For actual TTF or OTF files, use our free medieval font downloads."}},
+    {"@type":"Question","name":"Why do some letters show up as empty boxes?","acceptedAnswer":{"@type":"Answer","text":"Your device has no glyph for that code point. Styles marked high compatibility are safest on older phones and game clients."}},
+    {"@type":"Question","name":"Why don't numbers change in most styles?","acceptedAnswer":{"@type":"Answer","text":"Unicode includes Fraktur letters A to Z but no Fraktur numerals. Digits stay plain in most styles. Monospace and Bold Sans include number mappings."}},
+    {"@type":"Question","name":"Can I use this for a tattoo design?","acceptedAnswer":{"@type":"Answer","text":"Yes as a style reference. Most tattoo artists redraw lettering by hand for the final stencil."}},
+    {"@type":"Question","name":"Is it free? Do you store my text?","acceptedAnswer":{"@type":"Answer","text":"Free, no signup, no limits. Everything runs in your browser and your text is never sent to a server."}}
+  ]
+}
+</script>
+<link rel="stylesheet" href="/assets/css/site.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="/">MedievalType</a>
+  <nav class="nav" aria-label="Primary">
+    <a href="/gothic-text-generator/" aria-current="page">Gothic Text</a>
+    <a href="/medieval-font-generator/">Medieval Fonts</a>
+    <a href="/medieval-fonts/">Downloads</a>
+  </nav>
+</header>
+
+<main class="wrap">
+  <h1>Gothic Text Generator</h1>
+  <p class="sub">Turn plain text into Gothic, blackletter and Fraktur lettering. Built for metal tags, gaming IDs, Discord names and Instagram bios. Type, pick a style, copy — no signup, nothing uploaded.</p>
+
+  <div class="tool">
+    <input type="text" id="src" value="Your Name" maxlength="500" autocomplete="off" aria-label="Type your text">
+    <div class="main-preview" id="mainOut" aria-live="polite">𝔜𝔬𝔲𝔯 𝔑𝔞𝔪𝔢</div>
+    <div class="row">
+      <button class="btn" id="copyMain" type="button">Copy</button>
+      <button class="btn ghost" id="ornToggle" type="button" aria-pressed="false">Ornaments</button>
+      <span class="hint" id="ornHint">Off</span>
+      <span class="hint ok" id="copied" hidden>Copied</span>
+    </div>
+  </div>
+
+  <div class="list" id="list" role="listbox" aria-label="Gothic styles"></div>
+
+  <h2>Which Gothic Style Should You Use?</h2>
+  <p>Match the style to where the text is going.</p>
+  <table>
+    <tr><th>If you need</th><th>Use</th><th>Why</th></tr>
+    <tr><td>Gaming tag / clan name</td><td>Bold Fraktur</td><td>Heavy strokes stay readable at small lobby sizes.</td></tr>
+    <tr><td>Instagram or TikTok bio</td><td>Gothic (classic)</td><td>Cleanest blackletter look for a short line.</td></tr>
+    <tr><td>Tattoo reference</td><td>Bold Fraktur</td><td>Closest to traditional American tattoo lettering — show as direction, not a stencil.</td></tr>
+    <tr><td>Band logo / album art</td><td>Metal or Grunge</td><td>Maximum density and texture at large sizes.</td></tr>
+    <tr><td>Something that renders everywhere</td><td>Bold Sans or Monospace</td><td>Near-universal Unicode support — fewer empty boxes.</td></tr>
+  </table>
+
+  <h2 id="tattoo">Tattoo &amp; formal lettering tip</h2>
+  <div class="note">
+    Unicode gothic is fine for mood boards and artist briefs. For skin, signs or print, download a real blackletter TTF from our <a href="/medieval-fonts/">font downloads</a> and have the final forms drawn or typeset properly.
+  </div>
+
+  <h2>Gothic vs Blackletter vs Fraktur vs Old English</h2>
+  <p>These names get used interchangeably. Here is the relationship:</p>
+  <table>
+    <tr><th>Term</th><th>What it means</th></tr>
+    <tr><td>Blackletter</td><td>The technical family name — dense, angular script from medieval Western Europe.</td></tr>
+    <tr><td>Gothic</td><td>The common name for blackletter. When people search “gothic font”, they usually mean this.</td></tr>
+    <tr><td>Fraktur</td><td>A German print branch of blackletter, dominant until the mid-20th century.</td></tr>
+    <tr><td>Old English</td><td>Another common name for blackletter, especially in American tattoo culture.</td></tr>
+  </table>
+  <div class="note"><strong>Caveat:</strong> in modern type catalogs “Gothic” can also mean a plain sans-serif. This page only covers the blackletter meaning.</div>
+
+  <h2>Where Gothic Text Works (and Where It Breaks)</h2>
+  <table>
+    <tr><th>Platform</th><th>Status</th><th>Notes</th></tr>
+    <tr><td>Instagram bio / captions</td><td>Works</td><td>Best-supported use case.</td></tr>
+    <tr><td>Discord / TikTok / X</td><td>Works</td><td>—</td></tr>
+    <tr><td>WhatsApp / Telegram</td><td>Works</td><td>—</td></tr>
+    <tr><td>LinkedIn fields</td><td>Partial</td><td>May silently strip Mathematical Alphanumeric characters.</td></tr>
+    <tr><td>Older Android / consoles</td><td>Partial</td><td>May show empty boxes (tofu). Prefer high-compatibility styles.</td></tr>
+    <tr><td>SEO-critical copy</td><td>Avoid</td><td>Search engines do not treat these as ordinary words.</td></tr>
+    <tr><td>Long body copy</td><td>Avoid</td><td>Screen readers announce characters individually.</td></tr>
+  </table>
+
+  <h2>Frequently Asked Questions</h2>
+  <details><summary>Is this a real font I can install?</summary>
+    <p>No. These are Unicode characters that already look like blackletter — which is why you can paste them anywhere. For a TTF/OTF file, see <a href="/medieval-fonts/">free medieval font downloads</a>.</p>
+  </details>
+  <details><summary>Why do some letters show up as empty boxes?</summary>
+    <p>Your device has no glyph for that code point. Styles marked high compatibility are safest.</p>
+  </details>
+  <details><summary>Why don't numbers change in most styles?</summary>
+    <p>Unicode includes Fraktur letters but no Fraktur numerals. Monospace and Bold Sans include digit mappings.</p>
+  </details>
+  <details><summary>Can I use this for a tattoo design?</summary>
+    <p>Yes as a reference. Artists usually redraw lettering for the final stencil — see the <a href="#tattoo">tattoo tip</a> above.</p>
+  </details>
+  <details><summary>Is it free? Do you store my text?</summary>
+    <p>Free, no signup, no limits. Everything runs in your browser.</p>
+  </details>
+  <details><summary>What's the character limit?</summary>
+    <p>500 characters. Blackletter reads best as a name, short phrase, or header.</p>
+  </details>
+
+  <h2>Related tools</h2>
+  <div class="links">
+    <a href="/medieval-font-generator/">Medieval Font Generator →</a>
+    <a href="/medieval-fonts/">Download Free Medieval Fonts →</a>
+  </div>
+</main>
+
+<footer class="site-footer">
+  MedievalType · Gothic Text Generator · Free · Client-side only
+</footer>
+
+<script src="/assets/js/unicode-styles.js"></script>
+<script>
+const src = document.getElementById('src');
+const mainOut = document.getElementById('mainOut');
+const list = document.getElementById('list');
+const copyMain = document.getElementById('copyMain');
+const copied = document.getElementById('copied');
+const ornBtn = document.getElementById('ornToggle');
+const ornHint = document.getElementById('ornHint');
+
+let ornIndex = -1; // -1 = off
+let current = MT.STYLES[0];
+
+MT.STYLES.forEach(style => {
+  const [label, cls] = MT.COMPAT_LABEL[style.compat];
+  const row = document.createElement('div');
+  row.className = 'item';
+  row.setAttribute('role', 'option');
+  row.dataset.id = style.id;
+  row.innerHTML = `
+    <div class="meta">
+      <div class="nm">${style.name}</div>
+      <span class="tag ${cls}">${label} compatibility</span>
+    </div>
+    <div class="out" data-id="${style.id}"></div>
+    <button class="cp" type="button" data-id="${style.id}">Copy</button>`;
+  list.appendChild(row);
+});
+
+function markActive(){
+  list.querySelectorAll('.item').forEach(el => {
+    el.classList.toggle('is-active', el.dataset.id === current.id);
+  });
+}
+
+function render(){
+  const text = src.value || 'Your Name';
+  const orn = ornIndex >= 0 ? ornIndex : null;
+  mainOut.textContent = MT.convert(text, current, orn);
+  MT.STYLES.forEach(s => {
+    const el = list.querySelector(`.out[data-id="${s.id}"]`);
+    if (el) el.textContent = MT.convert(text, s, orn);
+  });
+  markActive();
+}
+
+async function flashCopied(){
+  copied.hidden = false;
+  setTimeout(() => { copied.hidden = true; }, 1400);
+}
+
+src.addEventListener('input', render);
+copyMain.addEventListener('click', async () => {
+  await MT.copyText(mainOut.textContent);
+  flashCopied();
+});
+
+ornBtn.addEventListener('click', () => {
+  ornIndex = ornIndex < 0 ? 0 : (ornIndex + 1);
+  if (ornIndex >= MT.ORNAMENTS.length) ornIndex = -1;
+  const on = ornIndex >= 0;
+  ornBtn.setAttribute('aria-pressed', String(on));
+  ornBtn.classList.toggle('on', on);
+  ornHint.textContent = on ? MT.ORNAMENTS[ornIndex] : 'Off';
+  render();
+});
+
+list.addEventListener('click', async e => {
+  const btn = e.target.closest('.cp');
+  if (btn) {
+    e.stopPropagation();
+    const s = MT.STYLES.find(x => x.id === btn.dataset.id);
+    const el = list.querySelector(`.out[data-id="${s.id}"]`);
+    await MT.copyText(el.textContent);
+    flashCopied();
+    return;
+  }
+  const row = e.target.closest('.item');
+  if (row) {
+    current = MT.STYLES.find(s => s.id === row.dataset.id) || current;
+    render();
+  }
+});
+
+render();
+</script>
+</body>
+</html>

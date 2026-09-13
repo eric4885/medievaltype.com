@@ -1,0 +1,7 @@
+﻿# Cloudflare / OS / editor
+.DS_Store
+Thumbs.db
+*.log
+.wrangler/
+.dev.vars
+node_modules/
