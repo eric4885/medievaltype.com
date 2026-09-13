@@ -13,8 +13,6 @@
 <meta property="og:title" content="Gothic Text Generator &mdash; Copy &amp; Paste Blackletter Text">
 <meta property="og:description" content="Turn plain text into Gothic, blackletter and Fraktur lettering. Live preview, one-click copy.">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Gothic Text Generator &mdash; Copy &amp; Paste Blackletter Text">
-<meta name="twitter:description" content="Turn plain text into Gothic, blackletter and Fraktur lettering. Live preview, one-click copy.">
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -29,6 +27,149 @@
 }
 </script>
 <link rel="stylesheet" href="/assets/css/site.css">
+<style>
+  .gt-sub { margin-bottom: 16px; }
+  .style-chips {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 2px 2px 10px;
+    margin: 0 0 4px;
+  }
+  .style-chips::-webkit-scrollbar { display: none; }
+  .style-chips button {
+    flex: 0 0 auto;
+    border: 1px solid var(--line);
+    background: var(--bg);
+    color: var(--dim);
+    border-radius: 999px;
+    padding: 10px 14px;
+    min-height: 44px;
+    font: 650 13px var(--font-ui);
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .style-chips button[aria-selected="true"] {
+    border-color: var(--accent);
+    color: var(--accent-ink);
+    background: var(--accent);
+  }
+
+  .gt-tool {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: color-mix(in srgb, var(--bg) 92%, transparent);
+    backdrop-filter: blur(8px);
+    padding: 8px 0 10px;
+    margin: 0 -4px;
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+  .gt-tool .tool {
+    margin: 0;
+  }
+  .gt-tool .main-preview {
+    margin: 12px 0;
+    padding: 18px 14px;
+    min-height: 64px;
+    font-size: clamp(24px, 6.5vw, 40px);
+  }
+  .gt-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .gt-actions .btn { flex: 1 1 auto; min-width: 120px; }
+  .gt-actions .btn.ghost { flex: 0 0 auto; }
+
+  .list.compact { margin-top: 8px; }
+  .list.compact .item {
+    gap: 10px;
+    padding: 10px 2px;
+    align-items: center;
+  }
+  .list.compact .item .out {
+    font-size: 18px;
+    line-height: 1.25;
+  }
+  .list.compact .item .meta { width: 120px; }
+  .list.compact .item .nm { font-size: 13px; }
+  .list.compact .item .tag {
+    font-size: 10px;
+    padding: 3px 7px;
+    margin-top: 2px;
+    font-weight: 700;
+    letter-spacing: .02em;
+    text-transform: uppercase;
+  }
+  .list.compact .cp {
+    min-width: 64px;
+    min-height: 44px;
+    padding: 10px 12px;
+    font-weight: 700;
+    color: var(--ink);
+    border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
+  }
+  .list.compact .item.is-active {
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+  }
+  .list.compact .item.is-active .nm { color: var(--accent); }
+
+  .toast {
+    position: fixed;
+    left: 50%;
+    bottom: 22px;
+    transform: translateX(-50%) translateY(12px);
+    background: var(--accent);
+    color: var(--accent-ink);
+    padding: 12px 18px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 14px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .18s ease, transform .18s ease;
+    z-index: 50;
+    box-shadow: 0 8px 24px rgba(0,0,0,.35);
+  }
+  .toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  @media (max-width: 640px) {
+    .wrap { padding-top: 16px; }
+    h1 { font-size: clamp(28px, 8vw, 36px); margin-bottom: 6px; }
+    .gt-sub { font-size: 15px; margin-bottom: 12px; }
+    .list.compact .item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-template-areas:
+        "out cp"
+        "meta cp";
+      gap: 4px 10px;
+      padding: 10px 0;
+    }
+    .list.compact .item .out { grid-area: out; width: auto; order: unset; }
+    .list.compact .item .meta { grid-area: meta; width: auto; order: unset; }
+    .list.compact .item .cp { grid-area: cp; align-self: center; order: unset; }
+    .list.compact .item .out { font-size: 17px; }
+  }
+
+  @media (min-width: 641px) {
+    .gt-tool {
+      position: static;
+      background: transparent;
+      backdrop-filter: none;
+      padding: 0;
+      margin: 0;
+    }
+  }
+</style>
 </head>
 <body>
 <header class="site-header">
@@ -42,20 +183,22 @@
 
 <main class="wrap">
   <h1>Gothic Text Generator</h1>
-  <p class="sub">Turn plain text into Gothic, blackletter and Fraktur lettering for metal tags, gaming IDs, Discord names and Instagram bios. This is a copy-paste Unicode tool &mdash; not a TTF download page. No signup, nothing uploaded.</p>
+  <p class="sub gt-sub">Copy-paste Fraktur for metal tags, gaming IDs and social bios. Not a TTF installer. No signup.</p>
 
-  <div class="tool">
-    <input type="text" id="src" value="Your Name" maxlength="500" autocomplete="off" aria-label="Type your text">
-    <div class="main-preview" id="mainOut" aria-live="polite">Your Name</div>
-    <div class="row">
-      <button class="btn" id="copyMain" type="button">Copy</button>
-      <button class="btn ghost" id="ornToggle" type="button" aria-pressed="false">Ornaments</button>
-      <span class="hint" id="ornHint">Off</span>
-      <span class="hint ok" id="copied" hidden>Copied</span>
+  <div class="gt-tool">
+    <div class="style-chips" id="chips" role="tablist" aria-label="Quick styles"></div>
+    <div class="tool">
+      <input type="text" id="src" value="Your Name" maxlength="500" autocomplete="off" aria-label="Type your text">
+      <div class="main-preview" id="mainOut" aria-live="polite">Your Name</div>
+      <div class="gt-actions">
+        <button class="btn" id="copyMain" type="button">Copy current</button>
+        <button class="btn ghost" id="ornToggle" type="button" aria-pressed="false">Ornaments</button>
+        <span class="hint" id="ornHint">Off</span>
+      </div>
     </div>
   </div>
 
-  <div class="list" id="list" role="listbox" aria-label="Gothic styles"></div>
+  <div class="list compact" id="list" role="listbox" aria-label="Gothic styles"></div>
 
   <h2>Which Gothic Style Should You Use?</h2>
   <p>Match the style to where the text is going.</p>
@@ -137,36 +280,65 @@
   <div class="footer-meta">All downloadable fonts are SIL OFL 1.1 &mdash; free for commercial use &middot; <a href="https://github.com/eric4885/medievaltype.com" rel="noopener nofollow">GitHub</a></div>
 </footer>
 
+<div class="toast" id="toast" role="status" aria-live="polite">Copied</div>
+
 <script src="/assets/js/unicode-styles.js"></script>
 <script>
 const src = document.getElementById('src');
 const mainOut = document.getElementById('mainOut');
 const list = document.getElementById('list');
+const chips = document.getElementById('chips');
 const copyMain = document.getElementById('copyMain');
-const copied = document.getElementById('copied');
 const ornBtn = document.getElementById('ornToggle');
 const ornHint = document.getElementById('ornHint');
+const toast = document.getElementById('toast');
 
 let ornIndex = -1;
 let current = MT.STYLES[0];
+let toastTimer = null;
+
+function shortCompat(c){
+  return c === 'hi' ? 'HIGH' : (c === 'med' ? 'MED' : 'LOW');
+}
 
 MT.STYLES.forEach(style => {
   const [label, cls] = MT.COMPAT_LABEL[style.compat];
+
+  const chip = document.createElement('button');
+  chip.type = 'button';
+  chip.textContent = style.name;
+  chip.dataset.id = style.id;
+  chip.setAttribute('role', 'tab');
+  chip.addEventListener('click', () => selectStyle(style.id, true));
+  chips.appendChild(chip);
+
   const row = document.createElement('div');
   row.className = 'item';
   row.setAttribute('role', 'option');
   row.dataset.id = style.id;
   row.innerHTML =
     '<div class="meta"><div class="nm">' + style.name + '</div>' +
-    '<span class="tag ' + cls + '">' + label + ' compatibility</span></div>' +
+    '<span class="tag ' + cls + '">' + shortCompat(style.compat) + '</span></div>' +
     '<div class="out" data-id="' + style.id + '"></div>' +
-    '<button class="cp" type="button" data-id="' + style.id + '">Copy</button>';
+    '<button class="cp" type="button" data-id="' + style.id + '" aria-label="Copy ' + style.name + '">Copy</button>';
   list.appendChild(row);
 });
+
+function selectStyle(id, scrollChip){
+  current = MT.STYLES.find(s => s.id === id) || current;
+  render();
+  if (scrollChip) {
+    const chip = chips.querySelector('[data-id="' + current.id + '"]');
+    if (chip && chip.scrollIntoView) chip.scrollIntoView({ inline: 'center', block: 'nearest', behavior: 'smooth' });
+  }
+}
 
 function markActive(){
   list.querySelectorAll('.item').forEach(el => {
     el.classList.toggle('is-active', el.dataset.id === current.id);
+  });
+  chips.querySelectorAll('button').forEach(el => {
+    el.setAttribute('aria-selected', String(el.dataset.id === current.id));
   });
 }
 
@@ -181,16 +353,20 @@ function render(){
   markActive();
 }
 
-async function flashCopied(){
-  copied.hidden = false;
-  setTimeout(() => { copied.hidden = true; }, 1400);
+function showToast(msg){
+  toast.textContent = msg || 'Copied';
+  toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove('show'), 1400);
+}
+
+async function copyNow(str){
+  await MT.copyText(str);
+  showToast('Copied');
 }
 
 src.addEventListener('input', render);
-copyMain.addEventListener('click', async () => {
-  await MT.copyText(mainOut.textContent);
-  flashCopied();
-});
+copyMain.addEventListener('click', () => copyNow(mainOut.textContent));
 
 ornBtn.addEventListener('click', () => {
   ornIndex = ornIndex < 0 ? 0 : (ornIndex + 1);
@@ -202,21 +378,18 @@ ornBtn.addEventListener('click', () => {
   render();
 });
 
-list.addEventListener('click', async e => {
+list.addEventListener('click', e => {
   const btn = e.target.closest('.cp');
   if (btn) {
     e.stopPropagation();
     const s = MT.STYLES.find(x => x.id === btn.dataset.id);
     const el = list.querySelector('.out[data-id="' + s.id + '"]');
-    await MT.copyText(el.textContent);
-    flashCopied();
+    copyNow(el.textContent);
+    selectStyle(s.id, true);
     return;
   }
   const row = e.target.closest('.item');
-  if (row) {
-    current = MT.STYLES.find(s => s.id === row.dataset.id) || current;
-    render();
-  }
+  if (row) selectStyle(row.dataset.id, true);
 });
 
 render();
