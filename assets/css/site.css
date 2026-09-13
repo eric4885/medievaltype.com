@@ -423,12 +423,26 @@ details p { color: var(--dim); margin: 10px 0 0; font-size: 15px; }
 .site-footer {
   max-width: var(--max);
   margin: 0 auto;
-  padding: 0 20px 40px;
+  padding: 22px 20px 40px;
   color: var(--muted);
   font-size: 13px;
   border-top: 1px solid var(--line);
-  padding-top: 18px;
+  display: grid;
+  gap: 10px;
 }
+.footer-brand { color: var(--dim); }
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+}
+.footer-nav a {
+  color: var(--dim);
+  text-decoration: none;
+}
+.footer-nav a:hover { color: var(--accent); }
+.footer-meta a { color: var(--dim); }
+.footer-meta a:hover { color: var(--accent); }
 
 @media (max-width: 640px) {
   .item { flex-wrap: wrap; }
