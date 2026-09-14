@@ -22,6 +22,8 @@
     {"@type":"Question","name":"Why do some letters show up as empty boxes?","acceptedAnswer":{"@type":"Answer","text":"Your device has no glyph for that code point. Styles marked high compatibility are safest on older phones and game clients."}},
     {"@type":"Question","name":"Why don't numbers change in most styles?","acceptedAnswer":{"@type":"Answer","text":"Unicode includes Fraktur letters A to Z but no Fraktur numerals. Digits stay plain in most styles. Monospace and Bold Sans include number mappings."}},
     {"@type":"Question","name":"Can I use this for a tattoo design?","acceptedAnswer":{"@type":"Answer","text":"Yes as a style reference. Most tattoo artists redraw lettering by hand for the final stencil."}},
+    {"@type":"Question","name":"Does Discord support gothic text?","acceptedAnswer":{"@type":"Answer","text":"Yes. Discord accepts Unicode Fraktur in usernames, nicknames, status, and messages. Prefer Bold Fraktur for small chat sizes."}},
+    {"@type":"Question","name":"Is gothic the same as Old English or Fraktur?","acceptedAnswer":{"@type":"Answer","text":"In search language, yes for blackletter looks. Technically blackletter is the family, Fraktur is a German branch, and Old English is a popular American label for similar display faces. This tool outputs Mathematical Fraktur Unicode."}},
     {"@type":"Question","name":"Is it free? Do you store my text?","acceptedAnswer":{"@type":"Answer","text":"Free, no signup, no limits. Everything runs in your browser and your text is never sent to a server."}}
   ]
 }
@@ -169,6 +171,46 @@
       margin: 0;
     }
   }
+
+  .alpha-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(52px, 1fr));
+    gap: 6px;
+    margin: 12px 0 8px;
+  }
+  .alpha-grid button {
+    border: 1px solid var(--line);
+    background: var(--panel);
+    color: var(--ink);
+    border-radius: var(--radius);
+    min-height: 52px;
+    padding: 8px 4px;
+    cursor: pointer;
+    font: 700 18px Georgia, "Times New Roman", serif;
+    line-height: 1.1;
+  }
+  .alpha-grid button:hover { border-color: var(--accent); color: var(--accent); }
+  .alpha-grid button small {
+    display: block;
+    margin-top: 4px;
+    font: 650 10px var(--font-ui);
+    color: var(--muted);
+    letter-spacing: .04em;
+  }
+  .scene-block {
+    border: 1px solid var(--line);
+    background: var(--panel);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    margin: 12px 0;
+  }
+  .scene-block h3 {
+    margin: 0 0 8px;
+    font-size: 18px;
+    color: var(--ink);
+  }
+  .scene-block p { margin: 0; color: var(--dim); font-size: 15px; }
+  .scene-block p + p { margin-top: 8px; }
 </style>
 </head>
 <body>
@@ -211,30 +253,50 @@
     <tr><td>Something that renders everywhere</td><td>Bold Sans or Monospace</td><td>Near-universal Unicode support &mdash; fewer empty boxes.</td></tr>
   </table>
 
-  <h2 id="tattoo">Tattoo &amp; formal lettering tip</h2>
-  <div class="note">
-    Unicode gothic is fine for mood boards and artist briefs. For skin, signs or print, download a real blackletter TTF from our <a href="/medieval-fonts/">font downloads</a> and have the final forms drawn or typeset properly.
+  <h2 id="discord">Gothic text for Discord</h2>
+  <div class="scene-block">
+    <h3>Usernames, nicknames, roles, status</h3>
+    <p>Discord accepts Mathematical Fraktur Unicode in display names, server nicknames, custom status, channel topics, and messages. Paste Bold Fraktur for clan tags &mdash; it holds weight in dark themes and small chat sizes.</p>
+    <p>Keep tags short. Long Fraktur lines are hard to scan in member lists. If a letter becomes a box on an older client, switch to Bold Sans on this page.</p>
   </div>
 
-  <h2>Gothic vs Blackletter vs Fraktur vs Old English</h2>
-  <p>These names get used interchangeably. Here is the relationship:</p>
+  <h2 id="tattoo">Tattoo reference (not a stencil)</h2>
+  <div class="scene-block">
+    <h3>Use Unicode to pick the mood</h3>
+    <p>Copy a short name or motto in Bold Fraktur and send it to your artist as atmosphere &mdash; not as the final stencil. Skin needs hand-drawn or properly typeset blackletter.</p>
+    <p>For print-ready shapes, download a real OFL TTF from our <a href="/medieval-fonts/">font downloads</a> and let the artist redraw or set the final forms.</p>
+  </div>
+
+  <h2 id="alphabet">Gothic / Fraktur alphabet (A&ndash;Z)</h2>
+  <p>Copy any letter. These are the same Mathematical Fraktur characters this generator uses &mdash; not a downloadable font file.</p>
+  <p class="hint" style="margin:0 0 4px">Gothic (classic Fraktur)</p>
+  <div class="alpha-grid" id="alphaClassic" aria-label="Classic Fraktur alphabet"></div>
+  <p class="hint" style="margin:12px 0 4px">Bold Fraktur</p>
+  <div class="alpha-grid" id="alphaBold" aria-label="Bold Fraktur alphabet"></div>
+  <div class="note">Digits have no Fraktur forms in Unicode, so numbers stay plain (0&ndash;9). Five classic capitals (C, H, I, R, Z) come from older Letterlike Symbols &mdash; that is why they can look slightly different from the rest.</div>
+
+  <h2 id="terms">Gothic vs Blackletter vs Fraktur vs Old English</h2>
+  <p>Searchers mix these labels. For this tool, they all point at blackletter-looking Unicode &mdash; but the history is not identical:</p>
   <table>
-    <tr><th>Term</th><th>What it means</th></tr>
-    <tr><td>Blackletter</td><td>The technical family name &mdash; dense, angular script from medieval Western Europe.</td></tr>
-    <tr><td>Gothic</td><td>The common name for blackletter. When people search &ldquo;gothic font&rdquo;, they usually mean this.</td></tr>
-    <tr><td>Fraktur</td><td>A German print branch of blackletter, dominant until the mid-20th century.</td></tr>
-    <tr><td>Old English</td><td>Another common name for blackletter, especially in American tattoo culture.</td></tr>
+    <tr><th>Term</th><th>What it means</th><th>On this site</th></tr>
+    <tr><td>Blackletter</td><td>The technical family: dense angular scripts from medieval Western Europe (Textura, Rotunda, Schwabacher, Fraktur).</td><td>Umbrella term for the niche.</td></tr>
+    <tr><td>Gothic</td><td>Everyday English for blackletter. (In East Asia, &ldquo;Gothic&rdquo; often means sans-serif &mdash; not this page.)</td><td>Primary search phrase for the generator.</td></tr>
+    <tr><td>Fraktur</td><td>German print blackletter with broken stroke endings; Unicode encodes two math alphabets (regular + bold).</td><td>What the Gothic / Bold Fraktur styles actually output.</td></tr>
+    <tr><td>Old English</td><td>Popular American label for Textura-style display faces (tattoos, diplomas, jerseys). Not the Old English language, and not a separate Unicode alphabet.</td><td>Same Fraktur paste as &ldquo;gothic&rdquo;; for installable faces use <a href="/medieval-font-generator/">Medieval Font Generator</a>.</td></tr>
   </table>
-  <div class="note"><strong>Caveat:</strong> in modern type catalogs &ldquo;Gothic&rdquo; can also mean a plain sans-serif. This page only covers the blackletter meaning.</div>
+  <div class="note"><strong>Bottom line:</strong> if you searched gothic, blackletter, Fraktur, or Old English text to copy-paste, this page is the right job. If you need a TTF for InDesign, Canva, or a character sheet, switch to downloads.</div>
 
   <h2>Where Gothic Text Works (and Where It Breaks)</h2>
   <table>
     <tr><th>Platform</th><th>Status</th><th>Notes</th></tr>
-    <tr><td>Instagram bio / captions</td><td>Works</td><td>Best-supported use case.</td></tr>
-    <tr><td>Discord / TikTok / X</td><td>Works</td><td>&mdash;</td></tr>
-    <tr><td>WhatsApp / Telegram</td><td>Works</td><td>&mdash;</td></tr>
+    <tr><td>Instagram bio / captions</td><td>Works</td><td>Best-supported social use case.</td></tr>
+    <tr><td>Discord</td><td>Works</td><td>Names, nicknames, status, messages &mdash; see <a href="#discord">Discord tip</a>.</td></tr>
+    <tr><td>TikTok / X / WhatsApp / Telegram</td><td>Works</td><td>Paste usually survives.</td></tr>
+    <tr><td>PUBG / BGMI / Free Fire</td><td>Often works</td><td>Player and clan name fields commonly accept Fraktur; test before locking a tag.</td></tr>
+    <tr><td>Roblox</td><td>Partial</td><td>Usernames are restricted; display names are more flexible.</td></tr>
+    <tr><td>Fortnite</td><td>Partial</td><td>Main username rules are strict; creative signs and some in-game text are hit-or-miss.</td></tr>
     <tr><td>LinkedIn fields</td><td>Partial</td><td>May silently strip Mathematical Alphanumeric characters.</td></tr>
-    <tr><td>Older Android / consoles</td><td>Partial</td><td>May show empty boxes (tofu). Prefer high-compatibility styles.</td></tr>
+    <tr><td>Older Android / consoles</td><td>Partial</td><td>May show empty boxes (tofu). Prefer HIGH compatibility styles.</td></tr>
     <tr><td>SEO-critical copy</td><td>Avoid</td><td>Search engines do not treat these as ordinary words.</td></tr>
     <tr><td>Long body copy</td><td>Avoid</td><td>Screen readers announce characters individually.</td></tr>
   </table>
@@ -242,6 +304,12 @@
   <h2>Frequently Asked Questions</h2>
   <details><summary>Is this a real font I can install?</summary>
     <p>No. These are Unicode characters that already look like blackletter &mdash; which is why you can paste them anywhere. For a TTF/OTF file, see <a href="/medieval-fonts/">free medieval font downloads</a>.</p>
+  </details>
+  <details><summary>Does Discord support gothic text?</summary>
+    <p>Yes. Paste into usernames, nicknames, status, and chat. Prefer Bold Fraktur for small sizes &mdash; details in the <a href="#discord">Discord section</a>.</p>
+  </details>
+  <details><summary>Is gothic the same as Old English or Fraktur?</summary>
+    <p>For copy-paste searches, usually yes. Technically Fraktur is what Unicode provides; Old English is a font-catalog label. Full breakdown in <a href="#terms">Gothic vs Blackletter vs Fraktur vs Old English</a>.</p>
   </details>
   <details><summary>Why do some letters show up as empty boxes?</summary>
     <p>Your device has no glyph for that code point. Styles marked high compatibility are safest.</p>
@@ -393,6 +461,26 @@ list.addEventListener('click', e => {
 });
 
 render();
+
+function fillAlphabet(containerId, styleId){
+  const box = document.getElementById(containerId);
+  const style = MT.STYLES.find(s => s.id === styleId);
+  if (!box || !style) return;
+  const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const glyphs = [...style.up];
+  for (let i = 0; i < 26; i++) {
+    const plain = letters[i];
+    const glyph = glyphs[i];
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.setAttribute('aria-label', 'Copy ' + plain);
+    btn.innerHTML = glyph + '<small>' + plain + '</small>';
+    btn.addEventListener('click', () => copyNow(glyph));
+    box.appendChild(btn);
+  }
+}
+fillAlphabet('alphaClassic', 'gothic');
+fillAlphabet('alphaBold', 'boldgothic');
 </script>
 </body>
 </html>
