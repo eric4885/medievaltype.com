@@ -64,8 +64,10 @@ MT.STYLES = [
     up:BOLD_FRAKTUR_UP, lo:BOLD_FRAKTUR_LO },
   { id:'metal', name:'Metal', note:'Dense Fraktur with marks', compat:'med',
     up:BOLD_FRAKTUR_UP, lo:BOLD_FRAKTUR_LO, pre:'\u2726', post:'\u2726' },
-  { id:'grave', name:'Grunge', note:'Struck-through gothic', compat:'med',
-    up:FRAKTUR_UP, lo:FRAKTUR_LO, strike:true },
+  /* cssStrike: preview uses CSS line-through. Do NOT append U+0338 —
+     Fraktur + combining solidus often becomes tofu on Android browsers. */
+  { id:'grave', name:'Grunge', note:'Struck-through gothic (CSS preview)', compat:'med',
+    up:BOLD_FRAKTUR_UP, lo:BOLD_FRAKTUR_LO, cssStrike:true },
   { id:'script', name:'Dark Cursive', note:'Formal script cousin', compat:'med',
     up:SCRIPT_UP, lo:SCRIPT_LO },
   { id:'bscript', name:'Royal Script', note:'Bold calligraphic', compat:'med',
@@ -99,9 +101,6 @@ MT.mapChar = function(ch, style){
 
 MT.convert = function(text, style, ornIndex){
   let out = [...text].map(c => MT.mapChar(c, style)).join('');
-  if (style.strike) {
-    out = [...out].map(c => /\s/.test(c) ? c : (c + '\u0338')).join('');
-  }
   if (ornIndex != null && ornIndex >= 0) {
     const o = MT.ORNAMENTS[ornIndex % MT.ORNAMENTS.length];
     out = o + ' ' + out + ' ' + o;

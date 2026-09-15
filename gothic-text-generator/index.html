@@ -211,6 +211,12 @@
   }
   .scene-block p { margin: 0; color: var(--dim); font-size: 15px; }
   .scene-block p + p { margin-top: 8px; }
+
+  .is-strike {
+    text-decoration: line-through;
+    text-decoration-thickness: 2px;
+    text-decoration-color: color-mix(in srgb, var(--accent) 75%, transparent);
+  }
 </style>
 </head>
 <body>
@@ -312,7 +318,7 @@
     <p>For copy-paste searches, usually yes. Technically Fraktur is what Unicode provides; Old English is a font-catalog label. Full breakdown in <a href="#terms">Gothic vs Blackletter vs Fraktur vs Old English</a>.</p>
   </details>
   <details><summary>Why do some letters show up as empty boxes?</summary>
-    <p>Your device has no glyph for that code point. Styles marked high compatibility are safest.</p>
+    <p>Your device has no glyph for that code point. Styles marked high compatibility are safest. Grunge uses a CSS strikethrough on the page so Android does not hit the old combining-slash tofu bug; copied text is Bold Fraktur that pastes cleanly.</p>
   </details>
   <details><summary>Why don't numbers change in most styles?</summary>
     <p>Unicode includes Fraktur letters but no Fraktur numerals. Monospace and Bold Sans include digit mappings.</p>
@@ -414,9 +420,13 @@ function render(){
   const text = src.value || 'Your Name';
   const orn = ornIndex >= 0 ? ornIndex : null;
   mainOut.textContent = MT.convert(text, current, orn);
+  mainOut.classList.toggle('is-strike', !!current.cssStrike);
   MT.STYLES.forEach(s => {
     const el = list.querySelector('.out[data-id="' + s.id + '"]');
-    if (el) el.textContent = MT.convert(text, s, orn);
+    if (el) {
+      el.textContent = MT.convert(text, s, orn);
+      el.classList.toggle('is-strike', !!s.cssStrike);
+    }
   });
   markActive();
 }
