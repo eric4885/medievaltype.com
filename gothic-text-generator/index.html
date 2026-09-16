@@ -7,12 +7,15 @@
 <meta name="description" content="Convert any text into Gothic, blackletter and Fraktur Unicode lettering. Instant live preview, one-click copy for Instagram, Discord, TikTok and gaming tags. No signup.">
 <link rel="canonical" href="https://medievaltype.com/gothic-text-generator/">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="MedievalType">
 <meta property="og:url" content="https://medievaltype.com/gothic-text-generator/">
 <meta property="og:title" content="Gothic Text Generator &mdash; Copy &amp; Paste Blackletter Text">
 <meta property="og:description" content="Turn plain text into Gothic, blackletter and Fraktur lettering. Live preview, one-click copy.">
-<meta name="twitter:card" content="summary">
+<meta property="og:image" content="https://medievaltype.com/og/default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://medievaltype.com/og/default.png">
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -243,6 +246,7 @@
         <button class="btn ghost" id="ornToggle" type="button" aria-pressed="false">Ornaments</button>
         <span class="hint" id="ornHint">Off</span>
       </div>
+      <p class="hint" id="styleHint" hidden>Grunge: strikethrough is preview-only here. Copied text is Bold Fraktur (no slash characters).</p>
     </div>
   </div>
 
@@ -250,7 +254,8 @@
 
   <h2>Which Gothic Style Should You Use?</h2>
   <p>Match the style to where the text is going.</p>
-  <table>
+  <div class="table-wrap">
+<table>
     <tr><th>If you need</th><th>Use</th><th>Why</th></tr>
     <tr><td>Gaming tag / clan name</td><td>Bold Fraktur</td><td>Heavy strokes stay readable at small lobby sizes.</td></tr>
     <tr><td>Instagram or TikTok bio</td><td>Gothic (classic)</td><td>Cleanest blackletter look for a short line.</td></tr>
@@ -258,6 +263,7 @@
     <tr><td>Band logo / album art</td><td>Metal or Grunge</td><td>Maximum density and texture at large sizes.</td></tr>
     <tr><td>Something that renders everywhere</td><td>Bold Sans or Monospace</td><td>Near-universal Unicode support &mdash; fewer empty boxes.</td></tr>
   </table>
+  </div>
 
   <h2 id="discord">Gothic text for Discord</h2>
   <div class="scene-block">
@@ -283,17 +289,20 @@
 
   <h2 id="terms">Gothic vs Blackletter vs Fraktur vs Old English</h2>
   <p>Searchers mix these labels. For this tool, they all point at blackletter-looking Unicode &mdash; but the history is not identical:</p>
-  <table>
+  <div class="table-wrap">
+<table>
     <tr><th>Term</th><th>What it means</th><th>On this site</th></tr>
     <tr><td>Blackletter</td><td>The technical family: dense angular scripts from medieval Western Europe (Textura, Rotunda, Schwabacher, Fraktur).</td><td>Umbrella term for the niche.</td></tr>
     <tr><td>Gothic</td><td>Everyday English for blackletter. (In East Asia, &ldquo;Gothic&rdquo; often means sans-serif &mdash; not this page.)</td><td>Primary search phrase for the generator.</td></tr>
     <tr><td>Fraktur</td><td>German print blackletter with broken stroke endings; Unicode encodes two math alphabets (regular + bold).</td><td>What the Gothic / Bold Fraktur styles actually output.</td></tr>
-    <tr><td>Old English</td><td>Popular American label for Textura-style display faces (tattoos, diplomas, jerseys). Not the Old English language, and not a separate Unicode alphabet.</td><td>Same Fraktur paste as &ldquo;gothic&rdquo;; for installable faces use <a href="/medieval-font-generator/">Medieval Font Generator</a>.</td></tr>
+    <tr><td>Old English</td><td>Popular American label for Textura-style display faces (tattoos, diplomas, jerseys). Not the Old English language, and not a separate Unicode alphabet.</td><td>Same Fraktur paste as &ldquo;gothic&rdquo;; for installable faces use <a href="/medieval-font-generator/">Medieval Generator</a>.</td></tr>
   </table>
+  </div>
   <div class="note"><strong>Bottom line:</strong> if you searched gothic, blackletter, Fraktur, or Old English text to copy-paste, this page is the right job. If you need a TTF for InDesign, Canva, or a character sheet, switch to downloads.</div>
 
   <h2>Where Gothic Text Works (and Where It Breaks)</h2>
-  <table>
+  <div class="table-wrap">
+<table>
     <tr><th>Platform</th><th>Status</th><th>Notes</th></tr>
     <tr><td>Instagram bio / captions</td><td>Works</td><td>Best-supported social use case.</td></tr>
     <tr><td>Discord</td><td>Works</td><td>Names, nicknames, status, messages &mdash; see <a href="#discord">Discord tip</a>.</td></tr>
@@ -306,6 +315,7 @@
     <tr><td>SEO-critical copy</td><td>Avoid</td><td>Search engines do not treat these as ordinary words.</td></tr>
     <tr><td>Long body copy</td><td>Avoid</td><td>Screen readers announce characters individually.</td></tr>
   </table>
+  </div>
 
   <h2>Frequently Asked Questions</h2>
   <details><summary>Is this a real font I can install?</summary>
@@ -344,7 +354,7 @@
   <div class="footer-brand">MedievalType &middot; Gothic Text Generator &middot; Free &middot; Client-side only</div>
   <nav class="footer-nav" aria-label="Footer">
     <a href="/gothic-text-generator/">Gothic Text</a>
-    <a href="/medieval-font-generator/">Medieval Font Generator</a>
+    <a href="/medieval-font-generator/">Medieval Generator</a>
     <a href="/medieval-fonts/">Downloads</a>
     <a href="/about/">About</a>
     <a href="/contact/">Contact</a>
@@ -366,6 +376,7 @@ const copyMain = document.getElementById('copyMain');
 const ornBtn = document.getElementById('ornToggle');
 const ornHint = document.getElementById('ornHint');
 const toast = document.getElementById('toast');
+const styleHint = document.getElementById('styleHint');
 
 let ornIndex = -1;
 let current = MT.STYLES[0];
@@ -421,6 +432,7 @@ function render(){
   const orn = ornIndex >= 0 ? ornIndex : null;
   mainOut.textContent = MT.convert(text, current, orn);
   mainOut.classList.toggle('is-strike', !!current.cssStrike);
+  if (styleHint) styleHint.hidden = !current.cssStrike;
   MT.STYLES.forEach(s => {
     const el = list.querySelector('.out[data-id="' + s.id + '"]');
     if (el) {

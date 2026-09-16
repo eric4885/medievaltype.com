@@ -7,11 +7,27 @@
 <meta name="description" content="Medieval font generator with live TTF preview and free OFL downloads. Type your text, see real blackletter faces, then download for RPG, LARP and period design.">
 <link rel="canonical" href="https://medievaltype.com/medieval-font-generator/">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="MedievalType">
 <meta property="og:url" content="https://medievaltype.com/medieval-font-generator/">
 <meta property="og:title" content="Medieval Font Generator &mdash; Preview &amp; Download">
 <meta property="og:description" content="Live medieval font preview plus free OFL TTF downloads. Built for RPG, LARP and period design.">
+<meta property="og:image" content="https://medievaltype.com/og/default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://medievaltype.com/og/default.png">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Is the preview the same as the downloaded file?","acceptedAnswer":{"@type":"Answer","text":"Yes. The preview uses the same TTF we ship in the zip. Rendering can still vary slightly by operating system hinting."}},
+    {"@type":"Question","name":"Can I use these fonts commercially?","acceptedAnswer":{"@type":"Answer","text":"Yes under SIL OFL 1.1. Keep the license file with redistributions. You cannot sell the font file alone as your own product."}},
+    {"@type":"Question","name":"Why does Windows Font Viewer show Chinese sample text?","acceptedAnswer":{"@type":"Answer","text":"That sentence comes from your Windows locale sample string, not from Chinese glyphs in the font. These packs are Latin blackletter faces. See the README inside each zip."}},
+    {"@type":"Question","name":"Why also show Unicode?","acceptedAnswer":{"@type":"Answer","text":"Some users still need pasteable text for chat or a temporary mock. The primary product on this page is the installable font."}}
+  ]
+}
+</script>
 <link rel="stylesheet" href="/assets/css/site.css">
 <style>
   .face-tabs { display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 0; }
@@ -85,7 +101,8 @@
 
   <h2 id="workflows">RPG, LARP, certificates &amp; print</h2>
   <p>Unicode paste is the wrong tool for layout. Use this page when you need a file that installs into Word, Affinity, Canva, or a VTT overlay.</p>
-  <table>
+  <div class="table-wrap">
+<table>
     <tr><th>Job</th><th>Suggested face</th><th>Workflow</th></tr>
     <tr><td>DnD / TTRPG character sheets</td><td>MedievalSharp or Metamorphous</td><td>Type the title above &rarr; preview &rarr; download zip &rarr; install TTF &rarr; set headings in your sheet template.</td></tr>
     <tr><td>LARP props &amp; handouts</td><td>Unifraktur Cook or Grenze Gotisch</td><td>Keep body text in a readable serif; use blackletter only for banners, seals, and short labels.</td></tr>
@@ -93,18 +110,21 @@
     <tr><td>Wedding / invitation titles</td><td>Unifraktur Maguntia or Metamorphous</td><td>Titles and names only &mdash; long paragraphs in blackletter tire the eye.</td></tr>
     <tr><td>Beer labels &amp; packaging</td><td>Pirata One or Grenze Gotisch</td><td>Display faces for brand marks; check OFL in the zip before commercial packaging runs.</td></tr>
   </table>
+  </div>
   <div class="note">
     Path in one line: <strong>preview here &rarr; download OFL zip &rarr; install &rarr; design</strong>. Need a Discord or Instagram paste instead? Use the <a href="/gothic-text-generator/">Gothic Text Generator</a>.
   </div>
 
   <h2>Who this page is for</h2>
-  <table>
+  <div class="table-wrap">
+<table>
     <tr><th>Audience</th><th>Why land here</th></tr>
     <tr><td>RPG / LARP makers</td><td>Need readable period titles that install into design tools.</td></tr>
     <tr><td>Worldbuilders &amp; writers</td><td>Chapter headings and prop mockups beat Unicode tofu.</td></tr>
     <tr><td>Print &amp; stationery</td><td>Certificates, invitations and labels need a real TTF, not bio characters.</td></tr>
     <tr><td>Designers</td><td>Want a real file under a clear commercial license.</td></tr>
   </table>
+  </div>
   <div class="note">
     Looking for the fastest metal / gaming ID paste tool? Use the dark <a href="/gothic-text-generator/">Gothic Text Generator</a> instead &mdash; same niche, different job.
   </div>
@@ -134,7 +154,7 @@
   <div class="footer-brand">MedievalType &middot; Medieval Font Generator &middot; Real TTF preview</div>
   <nav class="footer-nav" aria-label="Footer">
     <a href="/gothic-text-generator/">Gothic Text</a>
-    <a href="/medieval-font-generator/">Medieval Font Generator</a>
+    <a href="/medieval-font-generator/">Medieval Generator</a>
     <a href="/medieval-fonts/">Downloads</a>
     <a href="/about/">About</a>
     <a href="/contact/">Contact</a>
