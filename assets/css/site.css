@@ -1,15 +1,10 @@
-/* MedievalType shared tokens */
+/* MedievalType shared tokens — dark defaults always present (avoids white flash if a theme fails) */
 :root {
   --font-ui: "Segoe UI", system-ui, -apple-system, sans-serif;
   --font-display: "Grenze Gotisch", "UnifrakturMaguntia", Georgia, serif;
   --font-body: Georgia, "Times New Roman", serif;
   --radius: 4px;
   --max: 920px;
-}
-
-/* Dark gothic theme (default / gothic text) */
-html[data-theme="gothic"],
-html:not([data-theme]) {
   --bg: #0c0b0f;
   --bg-2: #14121a;
   --panel: #18161f;
@@ -26,24 +21,42 @@ html:not([data-theme]) {
   --preview-bg: linear-gradient(180deg, #1c1a22, #121018);
 }
 
-/* Atelier dark — gothic font generator (premium, cooler than pure gothic) */
+/* Dark gothic theme (gothic text) — warm black + soft gold */
+html[data-theme="gothic"] {
+  --bg: #0c0b0f;
+  --bg-2: #14121a;
+  --panel: #18161f;
+  --line: #2e2a36;
+  --ink: #f2efe8;
+  --dim: #9e978c;
+  --muted: #6f6860;
+  --accent: #c4a35a;
+  --accent-ink: #1a1408;
+  --hero-glow: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(196,163,90,.14), transparent 55%);
+  --preview-bg: linear-gradient(180deg, #1c1a22, #121018);
+}
+
+/* Atelier dark — gothic font generator: cooler ink-blue night, brighter gold (still dark, not light) */
 html[data-theme="atelier"] {
-  --bg: #0a0b10;
-  --bg-2: #12141c;
-  --panel: #151822;
-  --line: #2c3344;
-  --ink: #f4f1ea;
-  --dim: #9aa3b2;
-  --muted: #6b7384;
-  --accent: #c9a227;
-  --accent-ink: #141008;
+  --bg: #07090f;
+  --bg-2: #0f131c;
+  --panel: #121826;
+  --line: #2a3448;
+  --ink: #eef2f8;
+  --dim: #9aa8bc;
+  --muted: #66758a;
+  --accent: #e0b84a;
+  --accent-ink: #121008;
   --ok: #6fbf8a;
   --warn: #d4a84b;
   --bad: #c97a6e;
-  --hero-glow: radial-gradient(ellipse 70% 55% at 70% -5%, rgba(90,110,160,.16), transparent 50%),
-               radial-gradient(ellipse 50% 40% at 10% 0%, rgba(201,162,39,.10), transparent 45%);
-  --preview-bg: linear-gradient(165deg, #1a1e2a, #0e1016 70%);
+  --hero-glow: radial-gradient(ellipse 65% 50% at 80% -10%, rgba(70,100,170,.22), transparent 55%),
+               radial-gradient(ellipse 45% 35% at 5% 5%, rgba(224,184,74,.12), transparent 50%);
+  --preview-bg: linear-gradient(160deg, #182033, #0a0d14 75%);
 }
+
+/* Parchment / medieval theme */
+html[data-theme="parchment"] {
   --bg: #e8dcc4;
   --bg-2: #dfd0b4;
   --panel: #f3e9d4;
@@ -125,14 +138,24 @@ a:hover { text-decoration: underline; }
   padding: 18px 20px 0;
 }
 .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   font-family: var(--font-display);
-  font-size: clamp(28px, 5vw, 36px);
+  font-size: clamp(26px, 4.5vw, 34px);
   line-height: 1;
   color: var(--ink);
   text-decoration: none;
   letter-spacing: .02em;
 }
+.brand img {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  flex: 0 0 auto;
+}
 .brand:hover { text-decoration: none; color: var(--accent); }
+.brand:hover img { outline: 1px solid var(--accent); }
 .nav {
   display: flex;
   flex-wrap: wrap;
