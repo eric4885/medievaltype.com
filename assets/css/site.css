@@ -151,11 +151,12 @@ a:hover { text-decoration: underline; }
 .brand img {
   width: 36px;
   height: 36px;
-  border-radius: 8px;
+  border-radius: 50%;
   flex: 0 0 auto;
+  background: #0c0b0f;
 }
 .brand:hover { text-decoration: none; color: var(--accent); }
-.brand:hover img { outline: 1px solid var(--accent); }
+.brand:hover img { box-shadow: 0 0 0 1px var(--accent); }
 .nav {
   display: flex;
   flex-wrap: wrap;
