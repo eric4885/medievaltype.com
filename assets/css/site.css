@@ -26,8 +26,24 @@ html:not([data-theme]) {
   --preview-bg: linear-gradient(180deg, #1c1a22, #121018);
 }
 
-/* Parchment / medieval theme */
-html[data-theme="parchment"] {
+/* Atelier dark — gothic font generator (premium, cooler than pure gothic) */
+html[data-theme="atelier"] {
+  --bg: #0a0b10;
+  --bg-2: #12141c;
+  --panel: #151822;
+  --line: #2c3344;
+  --ink: #f4f1ea;
+  --dim: #9aa3b2;
+  --muted: #6b7384;
+  --accent: #c9a227;
+  --accent-ink: #141008;
+  --ok: #6fbf8a;
+  --warn: #d4a84b;
+  --bad: #c97a6e;
+  --hero-glow: radial-gradient(ellipse 70% 55% at 70% -5%, rgba(90,110,160,.16), transparent 50%),
+               radial-gradient(ellipse 50% 40% at 10% 0%, rgba(201,162,39,.10), transparent 45%);
+  --preview-bg: linear-gradient(165deg, #1a1e2a, #0e1016 70%);
+}
   --bg: #e8dcc4;
   --bg-2: #dfd0b4;
   --panel: #f3e9d4;
@@ -46,32 +62,38 @@ html[data-theme="parchment"] {
 
 @font-face {
   font-family: "UnifrakturMaguntia";
-  src: url("/assets/fonts/unifraktur-maguntia/UnifrakturMaguntia-Book.ttf") format("truetype");
+  src: url("/assets/fonts/unifraktur-maguntia/UnifrakturMaguntia-Book.woff2") format("woff2"),
+       url("/assets/fonts/unifraktur-maguntia/UnifrakturMaguntia-Book.ttf") format("truetype");
   font-display: swap;
 }
 @font-face {
   font-family: "UnifrakturCook";
-  src: url("/assets/fonts/unifraktur-cook/UnifrakturCook-Bold.ttf") format("truetype");
+  src: url("/assets/fonts/unifraktur-cook/UnifrakturCook-Bold.woff2") format("woff2"),
+       url("/assets/fonts/unifraktur-cook/UnifrakturCook-Bold.ttf") format("truetype");
   font-display: swap;
 }
 @font-face {
   font-family: "MedievalSharp";
-  src: url("/assets/fonts/medievalsharp/MedievalSharp.ttf") format("truetype");
+  src: url("/assets/fonts/medievalsharp/MedievalSharp.woff2") format("woff2"),
+       url("/assets/fonts/medievalsharp/MedievalSharp.ttf") format("truetype");
   font-display: swap;
 }
 @font-face {
   font-family: "Pirata One";
-  src: url("/assets/fonts/pirata-one/PirataOne-Regular.ttf") format("truetype");
+  src: url("/assets/fonts/pirata-one/PirataOne-Regular.woff2") format("woff2"),
+       url("/assets/fonts/pirata-one/PirataOne-Regular.ttf") format("truetype");
   font-display: swap;
 }
 @font-face {
   font-family: "Grenze Gotisch";
-  src: url("/assets/fonts/grenze-gotisch/GrenzeGotisch-Variable.ttf") format("truetype");
+  src: url("/assets/fonts/grenze-gotisch/GrenzeGotisch-Variable.woff2") format("woff2"),
+       url("/assets/fonts/grenze-gotisch/GrenzeGotisch-Variable.ttf") format("truetype");
   font-display: swap;
 }
 @font-face {
   font-family: "Metamorphous";
-  src: url("/assets/fonts/metamorphous/Metamorphous-Regular.ttf") format("truetype");
+  src: url("/assets/fonts/metamorphous/Metamorphous-Regular.woff2") format("woff2"),
+       url("/assets/fonts/metamorphous/Metamorphous-Regular.ttf") format("truetype");
   font-display: swap;
 }
 

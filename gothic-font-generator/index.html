@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="atelier">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gothic Font Generator &mdash; Preview Blackletter Fonts &amp; Copy Text (Free)</title>
+<meta name="description" content="Gothic font generator for logos, packaging and brand marks. Preview real OFL blackletter typefaces, download the TTF, or copy Unicode for mockups. Free, no signup.">
+<link rel="canonical" href="https://medievaltype.com/gothic-font-generator/">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MedievalType">
+<meta property="og:url" content="https://medievaltype.com/gothic-font-generator/">
+<meta property="og:title" content="Gothic Font Generator &mdash; Real Fonts + Unicode Preview">
+<meta property="og:description" content="Design-ready gothic font generator: live blackletter preview, OFL downloads, and Unicode copy for brand mockups.">
+<meta property="og:image" content="https://medievaltype.com/og/default.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://medievaltype.com/og/default.png">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Is this the same as a gothic text generator?","acceptedAnswer":{"@type":"Answer","text":"No. This page is built for design and brand work: you preview real installable blackletter fonts and can download OFL TTF packs. Unicode copy is included for quick mockups. For fastest social-bio paste only, use the Gothic Text Generator."}},
+    {"@type":"Question","name":"Can I use the downloaded fonts in a commercial logo?","acceptedAnswer":{"@type":"Answer","text":"Yes under SIL OFL 1.1 for the faces we host. Keep the license with redistributions. You may embed the font in a logo or product; you may not sell the font file alone as your product."}},
+    {"@type":"Question","name":"Why show both a real font preview and Unicode?","acceptedAnswer":{"@type":"Answer","text":"Clients often need a file for print and packaging, plus a quick pasteable sample for Slack or email threads. Real fonts are the production path; Unicode is the temporary mock."}},
+    {"@type":"Question","name":"Will the Unicode look identical to the downloaded font?","acceptedAnswer":{"@type":"Answer","text":"No. Unicode Fraktur is a fixed mathematical alphabet. The TTF faces (Unifraktur, Pirata One, and others) have their own outlines. Use Unicode for direction; use the downloaded file for final artwork."}},
+    {"@type":"Question","name":"Do you host personal-use-only fonts?","acceptedAnswer":{"@type":"Answer","text":"No. Every pack on MedievalType is SIL OFL 1.1."}}
+  ]
+}
+</script>
+<link rel="preload" href="/assets/fonts/unifraktur-maguntia/UnifrakturMaguntia-Book.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css">
+<style>
+  .gf-split {
+    display: grid;
+    gap: 14px;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 16px;
+  }
+  .gf-pane {
+    border: 1px solid var(--line);
+    background: var(--panel);
+    border-radius: var(--radius);
+    padding: 14px 16px 16px;
+  }
+  .gf-pane .pane-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  .gf-pane .sample {
+    min-height: 88px;
+    font-size: clamp(26px, 5vw, 40px);
+    line-height: 1.3;
+    word-break: break-word;
+    padding: 8px 0 14px;
+    background: var(--preview-bg);
+    border-radius: var(--radius);
+    padding: 14px 12px;
+    margin-bottom: 12px;
+  }
+  .face-tabs { display:flex; flex-wrap:wrap; gap:8px; margin:12px 0 0; }
+  .face-tabs button {
+    border:1px solid var(--line); background:var(--bg); color:var(--dim);
+    padding:8px 12px; border-radius:999px; cursor:pointer; font:650 13px var(--font-ui);
+    min-height: 40px;
+  }
+  .face-tabs button[aria-selected="true"] {
+    border-color: var(--accent); color: var(--accent-ink); background: var(--accent);
+  }
+  .gf-note-row { margin-top: 10px; }
+  @media (max-width: 720px) {
+    .gf-split { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="/">MedievalType</a>
+  <nav class="nav" aria-label="Primary">
+    <a href="/gothic-text-generator/">Gothic Text</a>
+    <a href="/gothic-font-generator/" aria-current="page">Gothic Font</a>
+    <a href="/medieval-fonts/">Downloads</a>
+  </nav>
+</header>
+
+<main class="wrap">
+  <h1>Gothic Font Generator</h1>
+  <p class="sub">Built for logos, packaging, certificates and brand systems &mdash; not gaming tags. Preview real blackletter faces, download OFL files, or copy Unicode for a quick client mock. No signup.</p>
+
+  <div class="tool">
+    <input type="text" id="src" value="House of Marks" maxlength="120" autocomplete="off" aria-label="Type text for gothic font preview">
+    <div class="face-tabs" id="faces" role="tablist" aria-label="Blackletter font faces"></div>
+
+    <div class="gf-split">
+      <div class="gf-pane">
+        <p class="pane-label">Real font preview (installable)</p>
+        <div class="sample" id="fontOut">House of Marks</div>
+        <a class="btn" id="dlBtn" href="/downloads/UnifrakturMaguntia.zip" download>Download this font (TTF zip)</a>
+        <p class="hint gf-note-row">Same outlines you install in Illustrator, Affinity or Canva.</p>
+      </div>
+      <div class="gf-pane">
+        <p class="pane-label">Unicode mock (copy-paste)</p>
+        <div class="sample" id="uniOut" style="font-family:Georgia,serif">House of Marks</div>
+        <button class="btn ghost" id="copyUni" type="button">Copy Unicode</button>
+        <span class="hint ok" id="copied" hidden>Copied</span>
+        <p class="hint gf-note-row">Useful in Slack briefs. Final art should use the downloaded file.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2>Who this gothic font generator is for</h2>
+  <div class="table-wrap">
+  <table>
+    <tr><th>Role</th><th>How you use it</th></tr>
+    <tr><td>Brand / logo designers</td><td>Test wordmarks in real blackletter before committing to custom lettering.</td></tr>
+    <tr><td>Packaging &amp; labels</td><td>Preview density at display sizes, then download OFL files for print files.</td></tr>
+    <tr><td>Studios &amp; freelancers</td><td>Send a Unicode mock in chat, ship the TTF in the working folder.</td></tr>
+    <tr><td>Certificate &amp; invitation layouts</td><td>Choose a readable Fraktur face, install it, typeset names properly.</td></tr>
+  </table>
+  </div>
+  <div class="note">
+    Need the fastest paste for Discord or Instagram bios? <a href="/gothic-text-generator/">Just want to copy &amp; paste? &rarr;</a>
+  </div>
+
+  <h2>Real font vs Unicode (why both sit here)</h2>
+  <p>Searchers type &ldquo;gothic font generator&rdquo; for two jobs that look alike but are not the same product.</p>
+  <div class="table-wrap">
+  <table>
+    <tr><th>Output</th><th>Best for</th><th>Limit</th></tr>
+    <tr><td>Installable TTF (OFL)</td><td>Print, logos, packaging, long-term brand assets</td><td>Must install the file on each machine or embed in the design file</td></tr>
+    <tr><td>Unicode Fraktur</td><td>Email threads, temporary mocks, social experiments</td><td>Fixed glyph set; not your chosen typeface; weak for SEO body copy</td></tr>
+  </table>
+  </div>
+  <p>Most single-purpose generators only ship Unicode. This page puts the <strong>font file path first</strong>, because that is what commercial gothic work actually needs.</p>
+
+  <h2>Choosing a face for brand work</h2>
+  <div class="table-wrap">
+  <table>
+    <tr><th>Face</th><th>Feel</th><th>Typical use</th></tr>
+    <tr><td>Unifraktur Maguntia</td><td>Classic book Fraktur</td><td>Certificates, formal titles, heritage brands</td></tr>
+    <tr><td>Unifraktur Cook</td><td>Heavier Fraktur</td><td>Short headlines that must hold at mid sizes</td></tr>
+    <tr><td>Grenze Gotisch</td><td>Modern blackletter display</td><td>Editorial covers, campaign titles</td></tr>
+    <tr><td>Pirata One</td><td>Sharp display gothic</td><td>Labels, marks, aggressive packaging</td></tr>
+    <tr><td>MedievalSharp</td><td>Pointed title face</td><td>Chapter titles, event branding</td></tr>
+    <tr><td>Metamorphous</td><td>Softer medieval serif</td><td>When pure Fraktur feels too dense</td></tr>
+  </table>
+  </div>
+  <p>Full catalog with category filters: <a href="/medieval-fonts/">medieval font downloads</a>. Period / RPG-focused preview also lives on the <a href="/medieval-font-generator/">Medieval Font Generator</a>.</p>
+
+  <h2>Production tips (logo &amp; print)</h2>
+  <ul>
+    <li>Keep gothic for names and short phrases &mdash; body paragraphs tire the eye and fail accessibility checks.</li>
+    <li>Check contrast on dark packaging; dense blackletter collapses when strokes choke.</li>
+    <li>Unicode is not a stencil for custom lettering; treat it as mood only.</li>
+    <li>Always keep the OFL text with redistributed font files.</li>
+  </ul>
+
+  <h2>Frequently Asked Questions</h2>
+  <details><summary>Is this the same as a gothic text generator?</summary>
+    <p>No. This page prioritizes installable fonts for design work. Unicode is secondary for mocks. For paste-only social tags, use the <a href="/gothic-text-generator/">Gothic Text Generator</a>.</p>
+  </details>
+  <details><summary>Can I use the downloaded fonts in a commercial logo?</summary>
+    <p>Yes under SIL OFL 1.1 for faces we host. Do not sell the font file alone as your product.</p>
+  </details>
+  <details><summary>Why show both a real font preview and Unicode?</summary>
+    <p>Production needs a file; collaboration often needs a pasteable sample. Both jobs show up under &ldquo;gothic font generator&rdquo; searches.</p>
+  </details>
+  <details><summary>Will Unicode match the downloaded font?</summary>
+    <p>No. Fraktur Unicode is a fixed math alphabet. Each TTF has its own design. Final artwork should use the file you download.</p>
+  </details>
+  <details><summary>Do you host personal-use-only fonts?</summary>
+    <p>No. Every pack here is SIL OFL 1.1.</p>
+  </details>
+
+  <h2>Related</h2>
+  <div class="links">
+    <a href="/gothic-text-generator/">Just want to copy &amp; paste? &rarr;</a>
+    <a href="/medieval-fonts/">Browse all OFL downloads &rarr;</a>
+    <a href="/medieval-font-generator/">Medieval Font Generator &rarr;</a>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-brand">MedievalType &middot; Gothic Font Generator &middot; Real fonts + Unicode</div>
+  <nav class="footer-nav" aria-label="Footer">
+    <a href="/gothic-text-generator/">Gothic Text</a>
+    <a href="/gothic-font-generator/">Gothic Font</a>
+    <a href="/medieval-font-generator/">Medieval Generator</a>
+    <a href="/medieval-fonts/">Downloads</a>
+    <a href="/about/">About</a>
+    <a href="/contact/">Contact</a>
+    <a href="/privacy/">Privacy</a>
+    <a href="/terms/">Terms</a>
+  </nav>
+  <div class="footer-meta">All downloadable fonts are SIL OFL 1.1 &mdash; free for commercial use &middot; <a href="https://github.com/eric4885/medievaltype.com" rel="noopener nofollow">GitHub</a></div>
+</footer>
+
+<script src="/assets/js/unicode-styles.js"></script>
+<script>
+const FACES = [
+  { id:'unifraktur-maguntia', name:'Unifraktur Maguntia', family:'UnifrakturMaguntia', woff2:'/assets/fonts/unifraktur-maguntia/UnifrakturMaguntia-Book.woff2', zip:'/downloads/UnifrakturMaguntia.zip' },
+  { id:'unifraktur-cook', name:'Unifraktur Cook', family:'UnifrakturCook', woff2:'/assets/fonts/unifraktur-cook/UnifrakturCook-Bold.woff2', zip:'/downloads/UnifrakturCook.zip' },
+  { id:'grenze-gotisch', name:'Grenze Gotisch', family:'"Grenze Gotisch"', woff2:'/assets/fonts/grenze-gotisch/GrenzeGotisch-Variable.woff2', zip:'/downloads/GrenzeGotisch.zip' },
+  { id:'pirata-one', name:'Pirata One', family:'"Pirata One"', woff2:'/assets/fonts/pirata-one/PirataOne-Regular.woff2', zip:'/downloads/PirataOne.zip' },
+  { id:'medievalsharp', name:'MedievalSharp', family:'MedievalSharp', woff2:'/assets/fonts/medievalsharp/MedievalSharp.woff2', zip:'/downloads/MedievalSharp.zip' },
+  { id:'metamorphous', name:'Metamorphous', family:'Metamorphous', woff2:'/assets/fonts/metamorphous/Metamorphous-Regular.woff2', zip:'/downloads/Metamorphous.zip' },
+];
+
+const loaded = new Set();
+const src = document.getElementById('src');
+const faces = document.getElementById('faces');
+const fontOut = document.getElementById('fontOut');
+const uniOut = document.getElementById('uniOut');
+const dlBtn = document.getElementById('dlBtn');
+const copyUni = document.getElementById('copyUni');
+const copied = document.getElementById('copied');
+const gothicStyle = MT.STYLES.find(s => s.id === 'boldgothic') || MT.STYLES[0];
+
+let current = FACES[0];
+
+async function ensureFont(face){
+  if (loaded.has(face.id) || !face.woff2 || !document.fonts || !window.FontFace) {
+    loaded.add(face.id);
+    return;
+  }
+  try {
+    const ff = new FontFace(face.family.replace(/"/g,''), 'url(' + face.woff2 + ') format("woff2")', { display: 'swap' });
+    await ff.load();
+    document.fonts.add(ff);
+  } catch (e) { /* CSS @font-face fallback still applies */ }
+  loaded.add(face.id);
+}
+
+FACES.forEach(f => {
+  const b = document.createElement('button');
+  b.type = 'button';
+  b.textContent = f.name;
+  b.dataset.id = f.id;
+  b.setAttribute('role', 'tab');
+  b.addEventListener('click', async () => {
+    current = f;
+    await ensureFont(f);
+    render();
+    history.replaceState(null, '', '#' + f.id);
+  });
+  faces.appendChild(b);
+});
+
+const hash = location.hash.replace(/^#/, '');
+if (hash) {
+  const found = FACES.find(f => f.id === hash);
+  if (found) current = found;
+}
+
+function render(){
+  const text = src.value || 'House of Marks';
+  fontOut.style.fontFamily = current.family + ', Georgia, serif';
+  fontOut.textContent = text;
+  uniOut.textContent = MT.convert(text, gothicStyle, null);
+  dlBtn.href = current.zip;
+  faces.querySelectorAll('button').forEach(b => {
+    b.setAttribute('aria-selected', String(b.dataset.id === current.id));
+  });
+}
+
+copyUni.addEventListener('click', async () => {
+  await MT.copyText(uniOut.textContent);
+  copied.hidden = false;
+  setTimeout(() => { copied.hidden = true; }, 1400);
+});
+
+src.addEventListener('input', render);
+ensureFont(current).then(render);
+</script>
+</body>
+</html>
