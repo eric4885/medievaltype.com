@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Medieval Font Generator &mdash; Preview &amp; Download Real Blackletter Fonts</title>
-<meta name="description" content="Medieval font generator with live TTF preview and free OFL downloads. Type your text, see real blackletter faces, then download for RPG, LARP and period design.">
+<title>Medieval Font Generator &mdash; RPG, LARP &amp; Period Title Preview</title>
+<meta name="description" content="Medieval font generator for RPG sheets, LARP props, certificates and period titles. Preview real blackletter faces, then download the full OFL catalog.">
 <link rel="canonical" href="https://medievaltype.com/medieval-font-generator/">
 <link rel="icon" href="/assets/favicon.png" type="image/png">
 <link rel="icon" href="/assets/logo-mark.png" type="image/png" sizes="128x128">
@@ -12,8 +12,8 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="MedievalType">
 <meta property="og:url" content="https://medievaltype.com/medieval-font-generator/">
-<meta property="og:title" content="Medieval Font Generator &mdash; Preview &amp; Download">
-<meta property="og:description" content="Live medieval font preview plus free OFL TTF downloads. Built for RPG, LARP and period design.">
+<meta property="og:title" content="Medieval Font Generator &mdash; RPG &amp; Period Preview">
+<meta property="og:description" content="Preview medieval type for RPG, LARP and certificates, then download OFL fonts from the catalog.">
 <meta property="og:image" content="https://medievaltype.com/og/default.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://medievaltype.com/og/default.png">
@@ -22,10 +22,10 @@
   "@context":"https://schema.org",
   "@type":"FAQPage",
   "mainEntity":[
-    {"@type":"Question","name":"Is the preview the same as the downloaded file?","acceptedAnswer":{"@type":"Answer","text":"Yes. The preview uses the same TTF we ship in the zip. Rendering can still vary slightly by operating system hinting."}},
-    {"@type":"Question","name":"Can I use these fonts commercially?","acceptedAnswer":{"@type":"Answer","text":"Yes under SIL OFL 1.1. Keep the license file with redistributions. You cannot sell the font file alone as your own product."}},
-    {"@type":"Question","name":"Why does Windows Font Viewer show Chinese sample text?","acceptedAnswer":{"@type":"Answer","text":"That sentence comes from your Windows locale sample string, not from Chinese glyphs in the font. These packs are Latin blackletter faces. See the README inside each zip."}},
-    {"@type":"Question","name":"Why also show Unicode?","acceptedAnswer":{"@type":"Answer","text":"Some users still need pasteable text for chat or a temporary mock. The primary product on this page is the installable font."}}
+    {"@type":"Question","name":"Where do I download the fonts?","acceptedAnswer":{"@type":"Answer","text":"On the Medieval Font Downloads catalog. This page is a scene preview for RPG, LARP and period titles; the catalog holds all six OFL packs."}},
+    {"@type":"Question","name":"Is this the same as the gothic font generator?","acceptedAnswer":{"@type":"Answer","text":"No. This page focuses on medieval / RPG / certificate workflows with parchment styling. The gothic font generator compares real fonts with Unicode for brand mockups."}},
+    {"@type":"Question","name":"Can I use these fonts commercially?","acceptedAnswer":{"@type":"Answer","text":"Yes under SIL OFL 1.1 for faces we host. Keep the license file with redistributions. You cannot sell the font file alone as your own product."}},
+    {"@type":"Question","name":"Why does Windows Font Viewer show Chinese sample text?","acceptedAnswer":{"@type":"Answer","text":"That sentence comes from your Windows locale sample string, not from Chinese glyphs in the font. See the README inside each zip on the downloads page."}}
   ]
 }
 </script>
@@ -37,128 +37,100 @@
     padding:8px 12px; border-radius:999px; cursor:pointer; font:650 13px var(--font-ui);
   }
   .face-tabs button[aria-selected="true"] {
-    border-color: var(--accent); color: var(--accent); background: color-mix(in srgb, var(--accent) 10%, var(--panel));
+    border-color: var(--accent); color: var(--accent-ink); background: var(--accent);
   }
   .primary-box {
-    margin-top:18px; border:1px solid var(--line); background:var(--panel);
+    margin-top:18px; border:1px solid #2a2118; background:#14110e;
     border-radius:var(--radius); padding:16px;
   }
   .primary-box .sample {
     font-size: clamp(30px, 6vw, 48px); line-height:1.3; min-height:80px;
-    word-break:break-word; padding:10px 0 16px;
+    word-break:break-word; padding:12px 4px 16px; color:#f3ebe0;
   }
-  .uni-secondary {
-    margin-top:14px; border:1px dashed var(--line); border-radius:var(--radius);
-    padding:12px 14px; background:transparent;
-  }
-  .uni-secondary summary {
-    cursor:pointer; font-size:14px; color:var(--muted); font-weight:650;
-  }
-  .uni-secondary .sample {
-    margin-top:10px; font-size:clamp(22px, 4vw, 32px); line-height:1.3;
-    word-break:break-word;
-  }
+  .primary-box .hint { color:#a89f92; }
 </style>
 </head>
 <body>
 <header class="site-header">
   <a class="brand" href="/"><img src="/assets/logo-mark.png" width="36" height="36" alt="">MedievalType</a>
-  <nav class="nav" aria-label="Primary">
-    <a href="/gothic-text-generator/">Gothic Text</a>
+    <nav class="nav" aria-label="Primary">
     <a href="/gothic-font-generator/">Gothic Font</a>
-    <a href="/medieval-font-generator/" aria-current="page">Medieval Generator</a>
+    <a href="/gothic-text-generator/">Gothic Text</a>
+    <a href="/medieval-font-generator/" aria-current="page">Medieval</a>
     <a href="/medieval-fonts/">Downloads</a>
   </nav>
 </header>
 
 <main class="wrap">
   <h1>Medieval Font Generator</h1>
-  <p class="sub">Preview real medieval typefaces in your browser, then download the TTF for RPG sheets, LARP props, chapter titles and period UI. This page is about installable fonts &mdash; not social-bio Unicode.</p>
+  <p class="sub">Preview period titles for RPG sheets, LARP props, certificates and chapter headings. This is a scene desk &mdash; the full OFL download library lives on Downloads.</p>
 
   <div class="tool">
     <input type="text" id="src" value="Ye Olde Tavern" maxlength="120" autocomplete="off" aria-label="Type your medieval text">
-    <div class="face-tabs" id="faces" role="tablist" aria-label="Font faces"></div>
+    <div class="face-tabs" id="faces" role="tablist" aria-label="Demo medieval faces"></div>
 
     <div class="primary-box">
       <div class="sample" id="fontOut">Ye Olde Tavern</div>
       <div class="row">
-        <a class="btn" id="dlBtn" href="/downloads/UnifrakturMaguntia.zip" download>Download this font (TTF zip)</a>
+        <a class="btn" href="/medieval-fonts/">Download all 6 medieval fonts &rarr;</a>
       </div>
+      <p class="hint" style="margin-top:10px">Dark proof slate on parchment &mdash; judge title weight before you install.</p>
     </div>
-
-    <details class="uni-secondary">
-      <summary>Optional: also copy as Unicode (secondary)</summary>
-      <div class="sample" id="uniOut" style="font-family:serif">Ye Olde Tavern</div>
-      <div class="row" style="margin-top:10px">
-        <button class="btn ghost" id="copyUni" type="button">Copy Unicode</button>
-        <span class="hint ok" id="copied" hidden>Copied</span>
-      </div>
-      <p class="hint" style="margin-top:8px">For metal tags and gaming IDs, the dark <a href="/gothic-text-generator/">Gothic Text Generator</a> is the better tool.</p>
-    </details>
   </div>
 
-  <h2>Font pack on this page</h2>
-  <p>All faces below are SIL OFL 1.1. Full catalog with category filters lives on the <a href="/medieval-fonts/">downloads page</a>.</p>
-  <div class="font-grid" id="pack"></div>
-
   <h2 id="workflows">RPG, LARP, certificates &amp; print</h2>
-  <p>Unicode paste is the wrong tool for layout. Use this page when you need a file that installs into Word, Affinity, Canva, or a VTT overlay.</p>
+  <p>Unicode paste is the wrong tool for layout. Use this page when you need a period title feel for a sheet or prop, then install files from the catalog.</p>
   <div class="table-wrap">
-<table>
+  <table>
     <tr><th>Job</th><th>Suggested face</th><th>Workflow</th></tr>
-    <tr><td>DnD / TTRPG character sheets</td><td>MedievalSharp or Metamorphous</td><td>Type the title above &rarr; preview &rarr; download zip &rarr; install TTF &rarr; set headings in your sheet template.</td></tr>
-    <tr><td>LARP props &amp; handouts</td><td>Unifraktur Cook or Grenze Gotisch</td><td>Keep body text in a readable serif; use blackletter only for banners, seals, and short labels.</td></tr>
-    <tr><td>Certificates / diplomas</td><td>Unifraktur Maguntia</td><td>Preview the recipient name at large size, then download for print layout. Prefer fewer words.</td></tr>
+    <tr><td>DnD / TTRPG character sheets</td><td>MedievalSharp or Metamorphous</td><td>Type the title above &rarr; preview &rarr; open Downloads &rarr; install TTF &rarr; set headings in your template.</td></tr>
+    <tr><td>LARP props &amp; handouts</td><td>Unifraktur Cook or Grenze Gotisch</td><td>Keep body text readable; use blackletter only for banners and seals.</td></tr>
+    <tr><td>Certificates / diplomas</td><td>Unifraktur Maguntia</td><td>Preview the recipient name at large size, then download from the catalog.</td></tr>
     <tr><td>Wedding / invitation titles</td><td>Unifraktur Maguntia or Metamorphous</td><td>Titles and names only &mdash; long paragraphs in blackletter tire the eye.</td></tr>
-    <tr><td>Beer labels &amp; packaging</td><td>Pirata One or Grenze Gotisch</td><td>Display faces for brand marks; check OFL in the zip before commercial packaging runs.</td></tr>
   </table>
   </div>
   <div class="note">
-    Path in one line: <strong>preview here &rarr; download OFL zip &rarr; install &rarr; design</strong>. Need a Discord or Instagram paste instead? Use the <a href="/gothic-text-generator/">Gothic Text Generator</a>.
+    Path: <strong>preview here &rarr; catalog download &rarr; install &rarr; design</strong>. Brand-side Unicode vs font compare: <a href="/gothic-font-generator/">Gothic Font Generator</a>. Fast social paste: <a href="/gothic-text-generator/">Gothic Text Generator</a>.
   </div>
 
   <h2>Who this page is for</h2>
   <div class="table-wrap">
-<table>
+  <table>
     <tr><th>Audience</th><th>Why land here</th></tr>
-    <tr><td>RPG / LARP makers</td><td>Need readable period titles that install into design tools.</td></tr>
+    <tr><td>RPG / LARP makers</td><td>Need readable period titles before installing a face.</td></tr>
     <tr><td>Worldbuilders &amp; writers</td><td>Chapter headings and prop mockups beat Unicode tofu.</td></tr>
-    <tr><td>Print &amp; stationery</td><td>Certificates, invitations and labels need a real TTF, not bio characters.</td></tr>
-    <tr><td>Designers</td><td>Want a real file under a clear commercial license.</td></tr>
+    <tr><td>Print &amp; stationery</td><td>Certificates and invitations need a real TTF from the catalog.</td></tr>
   </table>
-  </div>
-  <div class="note">
-    Looking for the fastest metal / gaming ID paste tool? Use the dark <a href="/gothic-text-generator/">Gothic Text Generator</a> instead &mdash; same niche, different job.
   </div>
 
   <h2>Frequently Asked Questions</h2>
-  <details><summary>Is the preview the same as the downloaded file?</summary>
-    <p>Yes. The preview uses the same TTF we ship in the zip. Rendering can still vary slightly by operating system hinting.</p>
+  <details><summary>Where do I download the fonts?</summary>
+    <p>On <a href="/medieval-fonts/">Medieval Font Downloads</a> &mdash; the only full six-pack catalog.</p>
+  </details>
+  <details><summary>Is this the same as the gothic font generator?</summary>
+    <p>No. This page is the RPG / period scene desk. The gothic font generator compares real fonts with Unicode for brand mocks.</p>
   </details>
   <details><summary>Can I use these fonts commercially?</summary>
-    <p>Yes under SIL OFL 1.1. Keep the license file with redistributions. You cannot sell the font file alone as your own product.</p>
+    <p>Yes under SIL OFL 1.1 for faces we host. Keep the license with redistributions.</p>
   </details>
   <details><summary>Why does Windows Font Viewer show Chinese sample text?</summary>
-    <p>That sentence comes from your Windows locale sample string, not from Chinese glyphs in the font. These packs are Latin blackletter faces. See the README inside each zip.</p>
-  </details>
-  <details><summary>Why also show Unicode?</summary>
-    <p>Some users still need pasteable text for chat or a temporary mock. The primary product on this page is the installable font.</p>
+    <p>That is your OS locale sample string, not CJK glyphs in the font. See the README in each zip.</p>
   </details>
 
   <h2>Related</h2>
   <div class="links">
-    <a href="/medieval-fonts/">All medieval font downloads &rarr;</a>
-    <a href="/gothic-font-generator/">Need real font files or a design preview? &rarr;</a>
+    <a href="/medieval-fonts/">Download all 6 medieval fonts &rarr;</a>
+    <a href="/gothic-font-generator/">Need real font vs Unicode compare? &rarr;</a>
     <a href="/gothic-text-generator/">Just want to copy &amp; paste? &rarr;</a>
   </div>
 </main>
 
 <footer class="site-footer">
-  <div class="footer-brand">MedievalType &middot; Medieval Font Generator &middot; Real TTF preview</div>
+  <div class="footer-brand">MedievalType &middot; Medieval Font Generator &middot; RPG / period scene desk</div>
   <nav class="footer-nav" aria-label="Footer">
-    <a href="/gothic-text-generator/">Gothic Text</a>
     <a href="/gothic-font-generator/">Gothic Font</a>
-    <a href="/medieval-font-generator/">Medieval Generator</a>
+    <a href="/gothic-text-generator/">Gothic Text</a>
+    <a href="/medieval-font-generator/">Medieval</a>
     <a href="/medieval-fonts/">Downloads</a>
     <a href="/about/">About</a>
     <a href="/contact/">Contact</a>
@@ -168,28 +140,16 @@
   <div class="footer-meta">All downloadable fonts are SIL OFL 1.1 &mdash; free for commercial use &middot; <a href="https://github.com/eric4885/medievaltype.com" rel="noopener">GitHub</a></div>
 </footer>
 
-<script src="/assets/js/unicode-styles.js"></script>
 <script>
 const FACES = [
-  { id:'unifraktur-maguntia', name:'Unifraktur Maguntia', family:'UnifrakturMaguntia', zip:'/downloads/UnifrakturMaguntia.zip' },
-  { id:'unifraktur-cook', name:'Unifraktur Cook', family:'UnifrakturCook', zip:'/downloads/UnifrakturCook.zip' },
-  { id:'grenze-gotisch', name:'Grenze Gotisch', family:'"Grenze Gotisch"', zip:'/downloads/GrenzeGotisch.zip' },
-  { id:'pirata-one', name:'Pirata One', family:'"Pirata One"', zip:'/downloads/PirataOne.zip' },
-  { id:'medievalsharp', name:'MedievalSharp', family:'MedievalSharp', zip:'/downloads/MedievalSharp.zip' },
-  { id:'metamorphous', name:'Metamorphous', family:'Metamorphous', zip:'/downloads/Metamorphous.zip' },
+  { id:'medievalsharp', name:'MedievalSharp', family:'MedievalSharp' },
+  { id:'metamorphous', name:'Metamorphous', family:'Metamorphous' },
 ];
 
 const src = document.getElementById('src');
 const faces = document.getElementById('faces');
 const fontOut = document.getElementById('fontOut');
-const uniOut = document.getElementById('uniOut');
-const dlBtn = document.getElementById('dlBtn');
-const copyUni = document.getElementById('copyUni');
-const copied = document.getElementById('copied');
-const pack = document.getElementById('pack');
-
 let current = FACES[0];
-const gothicStyle = MT.STYLES.find(s => s.id === 'gothic');
 
 const hash = location.hash.replace(/^#/, '');
 if (hash) {
@@ -203,51 +163,22 @@ FACES.forEach(f => {
   b.textContent = f.name;
   b.dataset.id = f.id;
   b.setAttribute('role', 'tab');
-  b.addEventListener('click', () => { current = f; render(); history.replaceState(null, '', '#' + f.id); });
+  b.addEventListener('click', () => {
+    current = f;
+    render();
+    history.replaceState(null, '', '#' + f.id);
+  });
   faces.appendChild(b);
-
-  const card = document.createElement('article');
-  card.className = 'font-card';
-  card.id = f.id;
-  card.innerHTML =
-    '<div class="sample" style="font-family:' + f.family + ', serif">' + src.value + '</div>' +
-    '<div class="name">' + f.name + '</div>' +
-    '<div class="meta-line">SIL OFL 1.1</div>' +
-    '<div class="actions">' +
-    '<a class="btn" href="' + f.zip + '" download>Download</a>' +
-    '<button class="btn ghost" type="button" data-pick="' + f.id + '">Preview</button>' +
-    '</div>';
-  pack.appendChild(card);
-});
-
-pack.addEventListener('click', e => {
-  const btn = e.target.closest('[data-pick]');
-  if (!btn) return;
-  current = FACES.find(f => f.id === btn.dataset.pick) || current;
-  render();
-  history.replaceState(null, '', '#' + current.id);
-  src.focus();
 });
 
 function render(){
   const text = src.value || 'Ye Olde Tavern';
   fontOut.style.fontFamily = current.family + ', serif';
   fontOut.textContent = text;
-  uniOut.textContent = MT.convert(text, gothicStyle, null);
-  dlBtn.href = current.zip;
   faces.querySelectorAll('button').forEach(b => {
     b.setAttribute('aria-selected', String(b.dataset.id === current.id));
   });
-  pack.querySelectorAll('.font-card .sample').forEach(el => {
-    el.textContent = text;
-  });
 }
-
-copyUni.addEventListener('click', async () => {
-  await MT.copyText(uniOut.textContent);
-  copied.hidden = false;
-  setTimeout(() => { copied.hidden = true; }, 1400);
-});
 
 src.addEventListener('input', render);
 render();
