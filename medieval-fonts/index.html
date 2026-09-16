@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Medieval Fonts &mdash; Free Blackletter &amp; Gothic TTF Downloads (OFL)</title>
-<meta name="description" content="Download free medieval, gothic and blackletter fonts (TTF) under SIL OFL 1.1. Sorted by Textura, Fraktur and display styles. Free for personal and commercial use.">
+<title>Medieval Fonts &mdash; Free Blackletter &amp; Gothic TTF Catalog (OFL)</title>
+<meta name="description" content="Catalog of free medieval, gothic and blackletter fonts under SIL OFL 1.1. Browse by Fraktur, Textura and display styles, then download TTF zips.">
 <link rel="canonical" href="https://medievaltype.com/medieval-fonts/">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="MedievalType">
 <meta property="og:url" content="https://medievaltype.com/medieval-fonts/">
-<meta property="og:title" content="Medieval Fonts &mdash; Free Blackletter TTF Downloads">
-<meta property="og:description" content="Free OFL medieval and gothic font packs. Preview in-browser, download TTF + license.">
+<meta property="og:title" content="Medieval Fonts &mdash; Free Blackletter TTF Catalog">
+<meta property="og:description" content="Browse our OFL blackletter catalog by category, then download TTF + license. For live typing preview, use the Gothic Font Generator.">
 <meta property="og:image" content="https://medievaltype.com/og/default.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://medievaltype.com/og/default.png">
@@ -30,7 +30,11 @@
 
 <main class="wrap">
   <h1>Medieval Font Downloads</h1>
-  <p class="sub">Real TTF files for blackletter work &mdash; Textura, Fraktur and display faces under SIL Open Font License 1.1. Preview below, then download the zip (font + OFL text). Free for personal and commercial use.</p>
+  <p class="sub">Catalog of free OFL blackletter packs &mdash; sorted by Fraktur, Textura/display and title faces. This page is the index for downloading files. For live typing with your own words, use the generator.</p>
+
+  <div class="note">
+    <a href="/gothic-font-generator/">Preview with your own text &rarr;</a> on the Gothic Font Generator (real font + Unicode side by side). This page stays a clean download catalog.
+  </div>
 
   <nav class="cat-nav" aria-label="Categories">
     <a href="#fraktur">Fraktur</a>
@@ -38,21 +42,16 @@
     <a href="#uncial-title">Title &amp; uncial-adjacent</a>
   </nav>
 
-  <div class="tool" style="margin-bottom:22px">
-    <label for="previewText" class="hint">Preview text</label>
-    <input type="text" id="previewText" value="MedievalType" maxlength="80" aria-label="Preview text for all fonts" style="margin-top:8px">
-  </div>
-
   <h2 id="fraktur">Fraktur</h2>
-  <p>German blackletter branches &mdash; dense, broken strokes, strong for headings and period UI.</p>
+  <p>German blackletter branches &mdash; dense, broken strokes for formal titles and heritage brands.</p>
   <div class="font-grid" id="cat-fraktur"></div>
 
   <h2 id="textura-display">Textura &amp; display</h2>
-  <p>Heavier gothic display faces for posters, band art and game titles.</p>
+  <p>Heavier gothic display faces for posters, packaging marks and campaign titles.</p>
   <div class="font-grid" id="cat-display"></div>
 
   <h2 id="uncial-title">Title &amp; uncial-adjacent</h2>
-  <p>Readable display serifs with medieval flavor &mdash; good for RPG sheets and chapter titles.</p>
+  <p>Readable medieval-flavored display serifs for chapter titles and softer brand lines.</p>
   <div class="font-grid" id="cat-title"></div>
 
   <h2>License</h2>
@@ -65,16 +64,16 @@
     On Chinese-locale Windows, Font Viewer often shows a Chinese sample sentence for <em>any</em> Latin-only TTF. That text is the OS sample string &mdash; not Chinese characters inside these fonts. Open the font in Word/Notepad, or read <code>README.txt</code> in the zip, to confirm Latin blackletter coverage.
   </div>
 
-  <h2>Need pasteable text instead?</h2>
+  <h2>Related tools</h2>
   <div class="links">
+    <a href="/gothic-font-generator/">Preview with your own text &rarr;</a>
     <a href="/gothic-text-generator/">Just want to copy &amp; paste? &rarr;</a>
-    <a href="/gothic-font-generator/">Need real font files or a design preview? &rarr;</a>
-    <a href="/medieval-font-generator/">Medieval Font Generator (preview + download) &rarr;</a>
+    <a href="/medieval-font-generator/">Medieval Font Generator (RPG / LARP) &rarr;</a>
   </div>
 </main>
 
 <footer class="site-footer">
-  <div class="footer-brand">MedievalType &middot; Font downloads &middot; Free for commercial use (OFL)</div>
+  <div class="footer-brand">MedievalType &middot; Font catalog &middot; Free for commercial use (OFL)</div>
   <nav class="footer-nav" aria-label="Footer">
     <a href="/gothic-text-generator/">Gothic Text</a>
     <a href="/gothic-font-generator/">Gothic Font</a>
@@ -85,7 +84,7 @@
     <a href="/privacy/">Privacy</a>
     <a href="/terms/">Terms</a>
   </nav>
-  <div class="footer-meta">All downloadable fonts are SIL OFL 1.1 &mdash; free for commercial use &middot; <a href="https://github.com/eric4885/medievaltype.com" rel="noopener nofollow">GitHub</a></div>
+  <div class="footer-meta">All downloadable fonts are SIL OFL 1.1 &mdash; free for commercial use &middot; <a href="https://github.com/eric4885/medievaltype.com" rel="noopener">GitHub</a></div>
 </footer>
 
 <script>
@@ -109,30 +108,22 @@ const boxes = {
   display: document.getElementById('cat-display'),
   title: document.getElementById('cat-title'),
 };
-const previewText = document.getElementById('previewText');
 
 function card(f){
   const el = document.createElement('article');
   el.className = 'font-card';
   el.innerHTML =
-    '<div class="sample" style="font-family:' + f.family + ', serif" data-id="' + f.id + '">MedievalType</div>' +
+    '<div class="sample" style="font-family:' + f.family + ', serif">Aa</div>' +
     '<div class="name">' + f.name + '</div>' +
     '<div class="meta-line">' + f.note + ' &middot; SIL OFL 1.1</div>' +
     '<div class="actions">' +
     '<a class="btn" href="' + f.file + '" download>Download zip</a>' +
-    '<a class="btn ghost" href="/medieval-font-generator/#' + f.id + '">Try in generator</a>' +
+    '<a class="btn ghost" href="/gothic-font-generator/#' + f.id + '">Preview with your own text</a>' +
     '</div>';
   return el;
 }
 
 FONTS.forEach(f => boxes[f.cat].appendChild(card(f)));
-
-function syncPreview(){
-  const t = previewText.value || 'MedievalType';
-  document.querySelectorAll('.font-card .sample').forEach(el => { el.textContent = t; });
-}
-previewText.addEventListener('input', syncPreview);
-syncPreview();
 </script>
 </body>
 </html>
