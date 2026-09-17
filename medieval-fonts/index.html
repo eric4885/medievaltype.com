@@ -13,11 +13,32 @@
 <meta property="og:site_name" content="MedievalType">
 <meta property="og:url" content="https://medievaltype.com/medieval-fonts/">
 <meta property="og:title" content="Medieval Fonts &mdash; Free Blackletter TTF Catalog">
-<meta property="og:description" content="Browse our OFL blackletter catalog by category, then download TTF + license. For live typing preview, use the Gothic Font Generator.">
+<meta property="og:description" content="Browse our OFL blackletter catalog by category, then download TTF + license. Preview faces with your own text on MedievalType.">
 <meta property="og:image" content="https://medievaltype.com/og/default.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://medievaltype.com/og/default.png">
 <link rel="stylesheet" href="/assets/css/site.css">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"CollectionPage",
+  "name":"Medieval Font Downloads",
+  "url":"https://medievaltype.com/medieval-fonts/",
+  "description":"Free OFL blackletter and gothic font catalog with TTF downloads.",
+  "isPartOf":{"@type":"WebSite","name":"MedievalType","url":"https://medievaltype.com/"},
+  "mainEntity":{
+    "@type":"ItemList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Unifraktur Maguntia","url":"https://medievaltype.com/downloads/UnifrakturMaguntia.zip"},
+      {"@type":"ListItem","position":2,"name":"Unifraktur Cook","url":"https://medievaltype.com/downloads/UnifrakturCook.zip"},
+      {"@type":"ListItem","position":3,"name":"Grenze Gotisch","url":"https://medievaltype.com/downloads/GrenzeGotisch.zip"},
+      {"@type":"ListItem","position":4,"name":"Pirata One","url":"https://medievaltype.com/downloads/PirataOne.zip"},
+      {"@type":"ListItem","position":5,"name":"MedievalSharp","url":"https://medievaltype.com/downloads/MedievalSharp.zip"},
+      {"@type":"ListItem","position":6,"name":"Metamorphous","url":"https://medievaltype.com/downloads/Metamorphous.zip"}
+    ]
+  }
+}
+</script>
 </head>
 <body>
 <header class="site-header">
@@ -35,7 +56,7 @@
   <p class="sub">Catalog of free OFL blackletter packs &mdash; sorted by Fraktur, Textura, and Display &amp; titling. This page is the index for downloading files. For live typing with your own words, use the generator.</p>
 
   <div class="note">
-    <a href="/gothic-font-generator/">Preview with your own text &rarr;</a> on the Gothic Font Generator (real font + Unicode side by side). This page stays a clean download catalog.
+    Live preview: <a href="/gothic-font-generator/">gothic font generator with real font files</a> (real type + Unicode side by side). This page stays a clean download catalog.
   </div>
 
   <nav class="cat-nav" aria-label="Categories">
@@ -46,15 +67,72 @@
 
   <h2 id="fraktur">Fraktur</h2>
   <p>German blackletter branches &mdash; dense, broken strokes for formal titles and heritage brands.</p>
-  <div class="font-grid" id="cat-fraktur"></div>
+  <div class="font-grid" id="cat-fraktur">
+    <article class="font-card">
+      <div class="sample" style="font-family:UnifrakturMaguntia, serif">Aa</div>
+      <div class="name">Unifraktur Maguntia</div>
+      <div class="meta-line">Classic Fraktur book face &middot; SIL OFL 1.1</div>
+      <div class="actions">
+        <a class="btn" href="/downloads/UnifrakturMaguntia.zip" download>Download zip</a>
+        <a class="btn ghost" href="/gothic-font-generator/#unifraktur-maguntia">Preview with your own text</a>
+      </div>
+    </article>
+    <article class="font-card">
+      <div class="sample" style="font-family:UnifrakturCook, serif">Aa</div>
+      <div class="name">Unifraktur Cook</div>
+      <div class="meta-line">Bold Fraktur for titles &middot; SIL OFL 1.1</div>
+      <div class="actions">
+        <a class="btn" href="/downloads/UnifrakturCook.zip" download>Download zip</a>
+        <a class="btn ghost" href="/gothic-font-generator/#unifraktur-cook">Preview with your own text</a>
+      </div>
+    </article>
+  </div>
 
   <h2 id="textura">Textura</h2>
   <p>Textura-style blackletter for posters, packaging marks and campaign titles.</p>
-  <div class="font-grid" id="cat-display"></div>
+  <div class="font-grid" id="cat-display">
+    <article class="font-card">
+      <div class="sample" style='font-family:"Grenze Gotisch", serif'>Aa</div>
+      <div class="name">Grenze Gotisch</div>
+      <div class="meta-line">Variable blackletter display &middot; SIL OFL 1.1</div>
+      <div class="actions">
+        <a class="btn" href="/downloads/GrenzeGotisch.zip" download>Download zip</a>
+        <a class="btn ghost" href="/gothic-font-generator/#grenze-gotisch">Preview with your own text</a>
+      </div>
+    </article>
+    <article class="font-card">
+      <div class="sample" style='font-family:"Pirata One", serif'>Aa</div>
+      <div class="name">Pirata One</div>
+      <div class="meta-line">Sharp gothic display &middot; SIL OFL 1.1</div>
+      <div class="actions">
+        <a class="btn" href="/downloads/PirataOne.zip" download>Download zip</a>
+        <a class="btn ghost" href="/gothic-font-generator/#pirata-one">Preview with your own text</a>
+      </div>
+    </article>
+  </div>
 
   <h2 id="uncial-title">Display &amp; titling</h2>
   <p>Readable medieval-flavored display serifs for chapter titles and softer brand lines.</p>
-  <div class="font-grid" id="cat-title"></div>
+  <div class="font-grid" id="cat-title">
+    <article class="font-card">
+      <div class="sample" style="font-family:MedievalSharp, serif">Aa</div>
+      <div class="name">MedievalSharp</div>
+      <div class="meta-line">Pointed medieval title face &middot; SIL OFL 1.1</div>
+      <div class="actions">
+        <a class="btn" href="/downloads/MedievalSharp.zip" download>Download zip</a>
+        <a class="btn ghost" href="/gothic-font-generator/#medievalsharp">Preview with your own text</a>
+      </div>
+    </article>
+    <article class="font-card">
+      <div class="sample" style="font-family:Metamorphous, serif">Aa</div>
+      <div class="name">Metamorphous</div>
+      <div class="meta-line">Soft medieval display serif &middot; SIL OFL 1.1</div>
+      <div class="actions">
+        <a class="btn" href="/downloads/Metamorphous.zip" download>Download zip</a>
+        <a class="btn ghost" href="/gothic-font-generator/#metamorphous">Preview with your own text</a>
+      </div>
+    </article>
+  </div>
 
   <h2>License</h2>
   <div class="note">
@@ -68,8 +146,8 @@
 
   <h2>Related tools</h2>
   <div class="links">
-    <a href="/gothic-font-generator/">Preview with your own text &rarr;</a>
-    <a href="/gothic-text-generator/">Just want to copy &amp; paste? &rarr;</a>
+    <a href="/gothic-font-generator/">Preview faces on MedievalType &rarr;</a>
+    <a href="/gothic-text-generator/">gothic text generator for copy-paste &rarr;</a>
     <a href="/medieval-font-generator/">Medieval Font Generator (RPG / LARP) &rarr;</a>
   </div>
 </main>
@@ -88,44 +166,5 @@
   </nav>
   <div class="footer-meta">All downloadable fonts are SIL OFL 1.1 &mdash; free for commercial use &middot; <a href="https://github.com/eric4885/medievaltype.com" rel="noopener">GitHub &mdash; source &amp; font packages</a></div>
 </footer>
-
-<script>
-const FONTS = [
-  { id:'unifraktur-maguntia', name:'Unifraktur Maguntia', cat:'fraktur', family:'UnifrakturMaguntia',
-    file:'/downloads/UnifrakturMaguntia.zip', note:'Classic Fraktur book face' },
-  { id:'unifraktur-cook', name:'Unifraktur Cook', cat:'fraktur', family:'UnifrakturCook',
-    file:'/downloads/UnifrakturCook.zip', note:'Bold Fraktur for titles' },
-  { id:'grenze-gotisch', name:'Grenze Gotisch', cat:'display', family:'"Grenze Gotisch"',
-    file:'/downloads/GrenzeGotisch.zip', note:'Variable blackletter display' },
-  { id:'pirata-one', name:'Pirata One', cat:'display', family:'"Pirata One"',
-    file:'/downloads/PirataOne.zip', note:'Sharp gothic display' },
-  { id:'medievalsharp', name:'MedievalSharp', cat:'title', family:'MedievalSharp',
-    file:'/downloads/MedievalSharp.zip', note:'Pointed medieval title face' },
-  { id:'metamorphous', name:'Metamorphous', cat:'title', family:'Metamorphous',
-    file:'/downloads/Metamorphous.zip', note:'Soft medieval display serif' },
-];
-
-const boxes = {
-  fraktur: document.getElementById('cat-fraktur'),
-  display: document.getElementById('cat-display'),
-  title: document.getElementById('cat-title'),
-};
-
-function card(f){
-  const el = document.createElement('article');
-  el.className = 'font-card';
-  el.innerHTML =
-    '<div class="sample" style="font-family:' + f.family + ', serif">Aa</div>' +
-    '<div class="name">' + f.name + '</div>' +
-    '<div class="meta-line">' + f.note + ' &middot; SIL OFL 1.1</div>' +
-    '<div class="actions">' +
-    '<a class="btn" href="' + f.file + '" download>Download zip</a>' +
-    '<a class="btn ghost" href="/gothic-font-generator/#' + f.id + '">Preview with your own text</a>' +
-    '</div>';
-  return el;
-}
-
-FONTS.forEach(f => boxes[f.cat].appendChild(card(f)));
-</script>
 </body>
 </html>
